@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:travellingyuan.MarkupExtension"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             xmlns:controls="clr-namespace:travellingyuan.Controls"
+             x:Class="travellingyuan.Views.PresentationPage"                 
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="False"
+             Padding="20,40,20,20"
+              Visual="Material" >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary Source="Sync/Styles.xaml" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+
+        <controls:AdMobView />
+
+        <Image  Aspect="AspectFit"
+                Source ="{local:EmbeddedImage travellingyuan.Images.banner.png}"  
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                x:Name="banner" />
+
+        <ScrollView Margin="0,15,0,0">
+            <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="15">
+
+                <!--  Grid for navigation bar icon  -->
+                <!--Add a note-->
+                <controls:TapAnimationGrid
+                    BackgroundColor="{DynamicResource Gray-White}"
+                    ColumnSpacing="0"
+                    Command="{Binding NavigateToAddNoteCommand}"
+                    RowSpacing="0"
+                    Tapped="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!--  Edit profile icon  -->
+                    <Label
+                        Grid.Column="0"
+                        Margin="16,0,0,0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Add}" />
+                    <!--  Edit profile label  -->
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Add a note" />
+                    <!--  Navigation icon  -->
+                    <Label
+                        Grid.Column="2"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Next}" />
+                </controls:TapAnimationGrid>
+                <BoxView Style="{StaticResource SeparatorStyle}" />
+
+                <!--Search a note-->
+                <controls:TapAnimationGrid
+                    BackgroundColor="{DynamicResource Gray-White}"
+                    ColumnSpacing="0"
+                    Command="{Binding NavigateToSearchNotePageCommand}"
+                    RowSpacing="0"
+                    Tapped="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!--  Edit profile icon  -->
+                    <Label
+                        Grid.Column="0"
+                        Margin="16,0,0,0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Search}" />
+                    <!--  Edit profile label  -->
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Track a note" />
+                    <!--  Navigation icon  -->
+                    <Label
+                        Grid.Column="2"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Next}" />
+                </controls:TapAnimationGrid>
+                <BoxView Style="{StaticResource SeparatorStyle}" />
+
+                <!--Stats-->
+                <controls:TapAnimationGrid
+                    BackgroundColor="{DynamicResource Gray-White}"
+                    ColumnSpacing="0"
+                    Command="{Binding NavigateToStatsViewPageCommand}"
+                    RowSpacing="0"
+                    Tapped="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!--  Edit profile icon  -->
+                    <Label
+                        Grid.Column="0"
+                        Margin="16,0,0,0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Stats}" />
+                    <!--  Edit profile label  -->
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource LabelStyle}"
+                        Text="View Stats" />
+                    <!--  Navigation icon  -->
+                    <Label
+                        Grid.Column="2"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Next}" />
+                </controls:TapAnimationGrid>
+                <BoxView Style="{StaticResource SeparatorStyle}" />
+
+            </StackLayout>
+        </ScrollView>
+
+
+        <StackLayout VerticalOptions="EndAndExpand">
+
+            <controls:AdMobView>
+
+            </controls:AdMobView>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

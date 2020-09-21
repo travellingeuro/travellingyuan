@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             xmlns:prismnav="http://prismlibrary.com"
+             xmlns:converter="clr-namespace:travellingyuan.Converters" 
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
+             xmlns:controls="clr-namespace:travellingyuan.Controls" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:triggers="clr-namespace:travellingyuan.Triggers" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="travellingyuan.Views.AddNote"
+             NavigationPage.HasNavigationBar="False">
+ 
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">White</Color>
+            <Style x:Key="background" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <converter:TextEnteredToBoolConverter x:Key="BoolConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 40, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.ControlTemplate>
+
+        <ControlTemplate>
+
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+
+                <controls:AdMobView />
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Back}"
+                        BindingContext="{TemplateBinding BindingContext}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <!-- Title -->
+                    <Label                         
+                        Text="Add a Note"
+                        TextColor="{DynamicResource Gray-900}"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        FontSize="{DynamicResource Sixteen}"
+                        Margin="0,20"
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+                <ContentPresenter />
+
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+    <ScrollView>
+        
+        <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,10">
+
+            <!--Email Entry-->
+            <Label
+                FontFamily="{StaticResource Montserrat-Medium}"
+                Margin="0,10,0,4"
+                HeightRequest="18"
+                FontSize="{DynamicResource Twelve}"
+                Text="Email:"
+                TextColor="{DynamicResource Gray-800}"
+                IsVisible="{Binding ShowEmailEntry}"/>
+
+            <border:SfBorder BorderColor="{Binding Source={x:Reference EmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}" IsVisible="{Binding ShowEmailEntry}">
+
+                <controls:BorderlessEntry
+                            x:Name="EmailEntry"
+                            Placeholder="Email"
+                            Text="{Binding Email}"
+                            Style="{StaticResource EntryTextBoxStyle}"
+                            IsVisible="{Binding ShowEmailEntry}"/>
+            </border:SfBorder>
+            <!-- Location -->
+            <Label
+                FontFamily="{StaticResource Montserrat-Medium}"
+                Margin="0,4,0,4"
+                HeightRequest="18"
+                FontSize="{DynamicResource Twelve}"
+                Text="Location"
+                TextColor="{DynamicResource Gray-800}"
+                />
+
+            <border:SfBorder BorderColor="{Binding Source={x:Reference Location}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                <controls:BorderlessEntry
+                        x:Name="Location"
+                        Placeholder="Location"
+                        Text="{Binding Search, Mode=TwoWay}"
+                        Keyboard="Text"
+                        Style="{StaticResource EntryTextBoxStyle}" />
+            </border:SfBorder>
+
+            <ActivityIndicator 
+                    Color="{StaticResource Theme}"
+                    IsRunning="{Binding IsBusy}" 
+                    IsVisible="{Binding IsBusy}" />
+
+
+            <!--IsVisible="{Binding isListViewVisible, Mode=TwoWay}"-->
+            <ListView 
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="Transparent" 
+                    Footer=""  
+                    SelectedItem="{Binding PlaceSelected, Mode=TwoWay}"
+                    x:Name="list"
+                    IsVisible="False"
+                    ItemsSource="{Binding Places}"
+                    HasUnevenRows="true"             
+                    SeparatorColor="Gray">
+                <ListView.Triggers>
+                    <DataTrigger TargetType="ListView" Binding="{Binding Source={x:Reference Location}, 
+                                                       Path=Text.Length, Converter={StaticResource BoolConverter}}"
+                                                       Value="True">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                    <EventTrigger Event="ItemSelected">
+                        <triggers:ItemSelectedValidation />
+                    </EventTrigger>
+                </ListView.Triggers>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid 
+                                Padding="15"
+                                RowSpacing="2"
+                                ColumnSpacing="15">
+                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label LineBreakMode="MiddleTruncation"
+                                       Text="{Binding StructuredFormatting.MainText}"
+                                       Grid.Row="0"
+                                       Grid.Column="1"/>
+                                <Label LineBreakMode="MiddleTruncation"
+                                       Text="{Binding StructuredFormatting.SecondaryText}" 
+                                       TextColor="Gray" 
+                                       Grid.Row="1"
+                                       Grid.Column="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--fin de listview de resultados-->          
+
+
+
+            <!--Serial number entry-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0"
+                       FontFamily="{StaticResource Montserrat-Medium}"
+                       Margin="0,24,0,4"
+                       HeightRequest="18" 
+                       FontSize="{DynamicResource Twelve}"
+                       Text="Serial Number"
+                       TextColor="{DynamicResource Gray-800}" />
+                
+                <Label Grid.Column="1"   
+                       Margin="0,24,0,4"
+                       Style="{StaticResource IconLabelStyle}"
+                       Text="{StaticResource Help}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowSpecimenCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label Grid.Column="2"
+                       Margin="0,24,0,4"
+                       Style="{StaticResource IconLabelStyle}"
+                       Text="{StaticResource Photo}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ScanCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+            </Grid>
+            <border:SfBorder BorderColor="{Binding Source={x:Reference SerialNumber}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+               
+                <controls:BorderlessEntry
+                            x:Name="SerialNumber"
+                            Placeholder="Serial Number"
+                            Text="{Binding SerialNumber}"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+            </border:SfBorder>
+
+            <!--Value-->
+
+            <Label
+                FontFamily="{StaticResource Montserrat-Medium}"
+                Margin="0,24,0,4"
+                HeightRequest="18"
+                FontSize="{DynamicResource Twelve}"
+                Text="Value"
+                TextColor="{DynamicResource Gray-800}" />
+
+            <border:SfBorder
+                        BorderColor="{Binding Source={x:Reference ValuePicker}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource BusinessFormBorderStyle}">
+                <combobox:SfComboBox
+                                x:Name="ValuePicker"
+                                SelectedItem="{Binding NoteValue}"                        
+                                Style="{StaticResource ComboBoxStyle}"
+                                Watermark="Value"
+                                VerticalOptions="CenterAndExpand">
+                    <combobox:SfComboBox.ComboBoxSource>
+                        <ListCollection:List x:TypeArguments="x:String">
+                            <x:String>5</x:String>
+                            <x:String>10</x:String>
+                            <x:String>20</x:String>
+                            <x:String>50</x:String>
+                            <x:String>100</x:String>
+                            <x:String>200</x:String>
+                            <x:String>500</x:String>
+                        </ListCollection:List>
+                    </combobox:SfComboBox.ComboBoxSource>
+                    <combobox:SfComboBox.DropDownButtonSettings>
+                        <combobox:DropDownButtonSettings>
+                            <combobox:DropDownButtonSettings.View>
+                                <Label
+                                    FontFamily="{StaticResource FontIcons}"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{StaticResource DropDownButtonIcon}"
+                                    TextColor="{DynamicResource Gray-600}"
+                                    VerticalTextAlignment="Center" />
+                            </combobox:DropDownButtonSettings.View>
+                        </combobox:DropDownButtonSettings>
+                    </combobox:SfComboBox.DropDownButtonSettings>
+                </combobox:SfComboBox>
+            </border:SfBorder>
+
+            <!--Comments-->
+
+            <Label
+	            FontFamily="{StaticResource Montserrat-Medium}"
+	            Margin="0,24,0,4"
+	            HeightRequest="18"
+	            FontSize="{DynamicResource Twelve}"
+	            Text="Comments"
+	            TextColor="{DynamicResource Gray-800}" />
+
+            <border:SfBorder BorderColor="{Binding Source={x:Reference CommentsEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                
+                <controls:BorderlessEntry
+                            x:Name="CommentsEntry"
+                            Placeholder="Comments"
+                            Keyboard="Text"
+                            Text="{Binding Comments}"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+                
+            </border:SfBorder>
+
+            <!--Buttons add, add another y map-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <buttons:SfButton Grid.Column="0"
+                        Text="{StaticResource Add}"
+                        x:Name="addbutton"
+                        HorizontalOptions="Center"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"
+                        Command="{Binding AddCommand}"/>
+
+                <buttons:SfButton Grid.Column="1"
+                        Text="{StaticResource Addmore}"
+                        Command="{Binding AddAnotherCommand}"
+                        HorizontalOptions="Center"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"/>
+
+                <buttons:SfButton Grid.Column="2"
+                        Text="{StaticResource Map}"
+                        x:Name="viewonmapbutton"
+                        Command="{Binding ViewMapCommand}"
+                        HorizontalOptions="Center"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"/>
+
+                <buttons:SfButton Grid.Column="3"
+                        Text="{StaticResource Center}"
+                        x:Name="viewupload"
+                        Command="{Binding NavigateToUploadsCommand}"
+                        HorizontalOptions="Center"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"/>
+            </Grid>
+
+
+        </StackLayout>
+
+    </ScrollView>
+
+
+
+
+</ContentPage>

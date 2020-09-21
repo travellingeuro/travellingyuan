@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             xmlns:prismnav="http://prismlibrary.com"
+             xmlns:converter="clr-namespace:travellingyuan.Converters" 
+             xmlns:controls="clr-namespace:travellingyuan.Controls" 
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="False"      
+             x:Class="travellingyuan.Views.SearchNotePage"
+              Visual="Material" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">White</Color>
+            <Style x:Key="background" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 40, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+
+                <controls:AdMobView />
+                
+                <StackLayout Orientation="Horizontal">
+                    
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Back}"
+                        BindingContext="{TemplateBinding BindingContext}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                   
+                    <!-- Title -->
+                    <Label 
+                    Text="Track a note"
+                    TextColor="{DynamicResource Gray-900}"
+                    FontFamily="{StaticResource Montserrat-Medium}"
+                    FontSize="{DynamicResource Sixteen}"
+                    Margin="0,20"
+                    HorizontalOptions="Center" />
+                
+                </StackLayout>
+
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+
+                <ContentPresenter />
+
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+
+    <ScrollView>
+        <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+            <ActivityIndicator 
+                Color="{StaticResource Theme}"  
+                IsRunning="{Binding IsBusy}" 
+                IsVisible="{Binding IsBusy}"/>
+
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0"
+                            FontFamily="{StaticResource Montserrat-Medium}"
+                            Margin="0,4,0,4"
+                            HeightRequest="18" 
+                            FontSize="{DynamicResource Twelve}"
+                            Text="Serial Number"
+                            TextColor="{DynamicResource Gray-800}" />
+                
+                <Label Grid.Column="1"                        
+                            Margin="0,4,0,4"
+                            Style="{StaticResource IconLabelStyle}"
+                            Text="{StaticResource Help}">
+                    
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowSpecimenCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label Grid.Column="2"                        
+                            Margin="0,4,0,4"
+                            Style="{StaticResource IconLabelStyle}"
+                            Text="{StaticResource Photo}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ScanCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+            <border:SfBorder BorderColor="{Binding Source={x:Reference SerialNumber}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                <controls:BorderlessEntry
+                            x:Name="SerialNumber"
+                            Placeholder="Serial Number"
+                            Text="{Binding SerialNumber}"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+            </border:SfBorder>
+
+            <buttons:SfButton                 
+                        Text="{StaticResource Search}"
+                        HorizontalOptions="End"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"
+                        Command="{Binding SearchNoteCommand}"/>
+            
+        </StackLayout>
+
+    </ScrollView>
+
+
+</ContentPage>

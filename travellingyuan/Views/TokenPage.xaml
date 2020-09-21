@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             xmlns:prismnav="http://prismlibrary.com"
+             xmlns:converter="clr-namespace:travellingyuan.Converters" 
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
+             xmlns:controls="clr-namespace:travellingyuan.Controls" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="False"
+             Padding="20,20,20,0"
+             x:Class="travellingyuan.Views.TokenPage"
+              Visual="Material" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="BackgroundColor">White</Color>
+            <Style x:Key="background" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 40, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+
+                <controls:AdMobView />
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Back}"
+                        BindingContext="{TemplateBinding BindingContext}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{prismnav:GoBack}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <!-- Title -->
+                    <Label 
+                        Text="Enter Code"
+                        TextColor="{DynamicResource Gray-900}"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        FontSize="{DynamicResource Sixteen}"
+                        Margin="0,20"
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+
+                <ContentPresenter />
+
+            </StackLayout>
+
+        </ControlTemplate>
+
+    </ContentPage.ControlTemplate>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+
+            <!--Token-->
+            <Label
+                FontFamily="{StaticResource Montserrat-Medium}"
+                Margin="0,24,0,4"
+                HeightRequest="18"
+                FontSize="{DynamicResource Twelve}"
+                Text="Access Code"                
+                TextColor="{DynamicResource Gray-800}" />
+
+            <border:SfBorder BorderColor="{Binding Source={x:Reference TokenEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                Style="{StaticResource BusinessFormBorderStyle}">
+                <controls:BorderlessEntry                    
+                    x:Name="TokenEntry"
+                    Placeholder="4 digit code"
+                    Keyboard="Numeric"
+                    Text="{Binding Token}"
+                    Style="{StaticResource EntryTextBoxStyle}" />
+            </border:SfBorder>
+
+            <!--Email-->
+            <Label
+                FontFamily="{StaticResource Montserrat-Medium}"
+                Margin="0,24,0,4"                
+                HeightRequest="18"
+                FontSize="{DynamicResource Twelve}"
+                Text="Email"
+                TextColor="{DynamicResource Gray-800}" />
+
+            <border:SfBorder BorderColor="{Binding Source={x:Reference emailentry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                Style="{StaticResource BusinessFormBorderStyle}">
+                <controls:BorderlessEntry
+                    x:Name="emailentry"
+                    Placeholder="Email"
+                    Keyboard="Email"
+                    Text="{Binding Email}"
+                    Style="{StaticResource EntryTextBoxStyle}" />
+            </border:SfBorder>
+
+            <ActivityIndicator HorizontalOptions="CenterAndExpand"
+                    Color="{StaticResource Theme}"
+                    IsRunning="{Binding IsBusy}" 
+                    IsVisible="{Binding IsBusy}" />
+
+            <!--Next Button-->
+            <buttons:SfButton 
+                    Text="{StaticResource Next}"
+                    HorizontalOptions="End"
+                    Margin="0,24,0,0"
+                    Style="{StaticResource IconButtonStyle}"
+                    CornerRadius="4"
+                    Command="{Binding NextCommand}"/>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

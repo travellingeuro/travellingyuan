@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             xmlns:themes = "clr-namespace:travellingyuan.Themes;assembly=travellingyuan"
+             x:Class="travellingyuan.App">
+	<Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <themes:LightTheme />
+            </ResourceDictionary.MergedDictionaries >
+            <!--Icons-->
+            <OnPlatform x:Key="FontIcons" x:TypeArguments="x:String">
+                <OnPlatform.Platforms>
+                    <On Platform="Android" Value="UIFontIcons.ttf#UIFontIcons" />
+                    <On Platform="iOS" Value="UIFontIcons" />
+                    <On Platform="UWP" Value="Assets/UIFontIcons.ttf#UIFontIcons" />
+                </OnPlatform.Platforms>
+            </OnPlatform>
+        </ResourceDictionary>
+
+		<!-- Application resource dictionary -->
+
+	</Application.Resources>
+</prism:PrismApplication>

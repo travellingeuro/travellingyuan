@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:travellingyuan.Views"
+            xmlns:prism="http://prismlibrary.com"
+            prism:ViewModelLocator.AutowireViewModel="True"  
+            prism:Navigation.CanNavigate="False"     
+            NavigationPage.HasNavigationBar="False"
+            BarBackgroundColor="#98A3A7"
+            BarTextColor="{StaticResource Gray-Black}"
+            SelectedTabColor="{StaticResource Gray-Black}"
+            UnselectedTabColor="{StaticResource Gray-White}"
+            x:Class="travellingyuan.Views.MainPage"
+             Visual="Material" >
+
+
+    <TabbedPage.Children>
+        
+        <views:PresentationPage  IconImageSource="home.png"/>
+        
+        <views:SearchNotePage  IconImageSource="search.png"/>       
+        
+        <views:AddNote  IconImageSource="add.png"/>
+         
+    </TabbedPage.Children>
+
+
+</TabbedPage>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        
+             x:Class="travellingyuan.Views.MapNotePage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:controls="clr-namespace:travellingyuan.Controls" 
+             xmlns:maps="clr-namespace:Syncfusion.SfMaps.XForms;assembly=Syncfusion.SfMaps.XForms" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.BackButtonTitle="Back"   
+             NavigationPage.HasNavigationBar="False"
+             x:Name="Mappage" >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="BackgroundColor">White</Color>
+            <Style x:Key="background" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            
+            <DataTemplate x:Key="markerTemplate">
+                <StackLayout IsClippedToBounds="false" HorizontalOptions="StartAndExpand" VerticalOptions="Center" HeightRequest="35">
+                    <Image Source="pin.png" Scale="1" Aspect="AspectFit " HorizontalOptions="StartAndExpand" VerticalOptions="Center"  HeightRequest="35" WidthRequest="25" />
+                </StackLayout>
+            </DataTemplate>
+            
+            <!--Datatemplate for tooltip-->
+
+            <DataTemplate x:Key="tooltipTemplate">
+                
+                <StackLayout BackgroundColor="{DynamicResource Gray-White}" Spacing="0">
+
+                    <Grid Margin="8,8,8,8"  ColumnSpacing="0" RowSpacing="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <border:SfBorder
+                            BackgroundColor="{DynamicResource Gray-200}"
+                            Style="{StaticResource ProfileBorderStyle}" 
+                            HorizontalOptions="Start">
+                            <Image HeightRequest="60" 
+                                   WidthRequest="50" 
+                                   BackgroundColor="{DynamicResource Gray-200}" 
+                                   Aspect="AspectFit" 
+                                   Source="{Binding Image}">
+                            </Image>
+                        </border:SfBorder>
+
+                        <StackLayout Grid.Column="1"   Margin="6,5" HorizontalOptions="Start" Spacing="2" VerticalOptions="FillAndExpand" WidthRequest="200">
+
+                            <Label Text="{Binding Date, StringFormat='{0:dd MMMM, yyyy}'}"                            
+                               TextColor="{DynamicResource Gray-800}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               FontSize="{DynamicResource Eight}" 
+                               LineHeight="{OnPlatform Android=1.5,Default=-1}"
+                               HorizontalOptions="Start"/>
+
+                            <Label Text="{Binding Address}"                            
+                               TextColor="{DynamicResource PrimaryColor}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               LineBreakMode="WordWrap"                                 
+                               FontSize="{DynamicResource Eight}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}" 
+                               HorizontalOptions="Center"/>
+                            
+                            <Label Text="{Binding Label}"                            
+                               TextColor="{DynamicResource Gray-700}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               FontSize="{DynamicResource Eight}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}"
+                               HorizontalOptions="Center"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <BoxView Style="{StaticResource SeparatorStyle}"/>
+                    
+                </StackLayout>
+                
+            </DataTemplate>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 40, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+                <controls:AdMobView />
+                <!-- Title -->
+                <Label 
+                    Text="Map page"
+                    TextColor="{DynamicResource Gray-900}"
+                    FontFamily="{StaticResource Montserrat-Medium}"
+                    FontSize="{DynamicResource Sixteen}"
+                    Margin="0,20,0,0"
+                    HorizontalOptions="CenterAndExpand" />
+
+                <StackLayout Spacing="0"   HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  BackgroundColor="{DynamicResource Gray-White}">
+                    <Label 
+                        BindingContext="{TemplateBinding BindingContext}"
+                        Text="{Binding SerialNumber}"
+                        TextColor="{DynamicResource Gray-600}"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        FontSize="{DynamicResource Fourteen}" 
+                        Margin="0,15"                       
+                        HorizontalOptions="CenterAndExpand" />
+
+                    <Label                         
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Center}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="searcha_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+
+                </StackLayout>
+
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+                <ContentPresenter />
+
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+
+    <ContentPage.Content>
+        <Grid
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+ 
+            <maps:SfMaps x:Name="sfmap" 
+                         BackgroundColor="White" 
+                         Grid.Row="0"
+                         EnableZooming="True" MaxZoom="10"
+                         EnablePanning="True">
+                <maps:SfMaps.Layers>
+                    <maps:ImageryLayer x:Name="map" 
+                                       MarkerTemplate="{StaticResource Key=markerTemplate}"
+                                       Markers="{Binding Pins}"                                       
+                                       ResetOldSelectedView="True">
+                        <maps:ImageryLayer.MarkerSettings>
+                            <maps:MapMarkerSetting>
+                                <maps:MapMarkerSetting.TooltipSettings>
+                                    <maps:TooltipSetting TooltipTemplate="{StaticResource Key=tooltipTemplate}"                                                          
+                                                         Duration="3000"
+                                                         ShowTooltip="True"/>
+                                </maps:MapMarkerSetting.TooltipSettings>
+                            </maps:MapMarkerSetting>
+                        </maps:ImageryLayer.MarkerSettings>
+      
+                        <maps:ImageryLayer.Sublayers>
+                            <maps:ShapeFileLayer Points="{Binding Points}" ShapeType="Polyline">
+                                <maps:ShapeFileLayer.ShapeSettings>
+                                    <maps:ShapeSetting x:Name="settings" ShapeStrokeThickness="3" />
+                                </maps:ShapeFileLayer.ShapeSettings>
+                            </maps:ShapeFileLayer>
+                        </maps:ImageryLayer.Sublayers>
+                    </maps:ImageryLayer>
+                </maps:SfMaps.Layers>
+            </maps:SfMaps>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <buttons:SfButton Grid.Column="0"
+                        Text="{StaticResource Back}"
+                        x:Name="backbutton"
+                        HorizontalOptions="Center"
+                        Margin="0,4,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"
+                        Command="{Binding HomeCommand}"/>
+
+                <buttons:SfButton Grid.Column="1"
+                        Text="{StaticResource Search}"
+                        Command="{Binding SearchCommand}"
+                        HorizontalOptions="Center"
+                        Margin="0,4,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"/>
+
+
+                <buttons:SfButton Grid.Column="2"
+                        Text="{StaticResource Center}"
+                        Clicked="searcha_Clicked"
+                        HorizontalOptions="Center"
+                        Margin="0,4,0,0"
+                        Style="{StaticResource IconButtonStyle}"
+                        CornerRadius="4"/>
+
+            </Grid>
+
+            <ActivityIndicator 
+                    Color="{StaticResource Theme}"
+                    IsRunning="{Binding IsBusy}" 
+                    IsVisible="{Binding IsBusy}" />
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

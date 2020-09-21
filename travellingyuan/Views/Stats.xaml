@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:maps="clr-namespace:Syncfusion.SfMaps.XForms;assembly=Syncfusion.SfMaps.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:controls="clr-namespace:travellingyuan.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:prismnav="http://prismlibrary.com"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
+             xmlns:converter="clr-namespace:travellingyuan.Converters"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="travellingyuan.Views.Stats" >
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">Black</Color>
+            <Style x:Key="background" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="Black"/>
+            </Style>
+            <DataTemplate x:Key="markerTemplate">
+                <StackLayout IsClippedToBounds="false" HorizontalOptions="StartAndExpand" VerticalOptions="Center" HeightRequest="35">
+                    <Image Source="pin.png" Scale="1" Aspect="AspectFit " HorizontalOptions="StartAndExpand" VerticalOptions="Center"  HeightRequest="35" WidthRequest="25" />
+                </StackLayout>
+            </DataTemplate>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <converter:TextEnteredToBoolConverter x:Key="BoolConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 40, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.ControlTemplate>
+
+        <ControlTemplate>
+
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+            
+                <controls:AdMobView />
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Back}"
+                        BindingContext="{TemplateBinding BindingContext}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{prismnav:GoBack UseModalNavigation=False}"/>
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <!-- Title -->
+                    <Label                         
+                        Text="Stats"
+                        TextColor="{DynamicResource Gray-900}"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        FontSize="{DynamicResource Sixteen}"
+                        Margin="0,20"
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+
+                <ContentPresenter />
+
+            </StackLayout>
+
+        </ControlTemplate>
+
+    </ContentPage.ControlTemplate>
+
+    <ContentPage.Content>
+        <Grid
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="9*" />
+                
+            </Grid.RowDefinitions>
+            
+            <ActivityIndicator 
+                    Color="{StaticResource Theme}"
+                    IsRunning="{Binding IsBusy}" 
+                    IsVisible="{Binding IsBusy}" />
+
+            <StackLayout Grid.Row="0" BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,0">
+
+                <border:SfBorder
+                        BorderColor="{Binding Source={x:Reference ValuePicker}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource BusinessFormBorderStyle}">
+                    <combobox:SfComboBox
+                                x:Name="ValuePicker"  
+                        SelectedItem="{Binding NoteValue, Mode=TwoWay}"
+                        SelectionChanged="ValuePicker_SelectionChanged"
+                                Style="{StaticResource ComboBoxStyle}"
+                                Watermark="Value"
+                                VerticalOptions="CenterAndExpand">
+                        <combobox:SfComboBox.ComboBoxSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>5</x:String>
+                                <x:String>10</x:String>
+                                <x:String>20</x:String>
+                                <x:String>50</x:String>
+                                <x:String>100</x:String>
+                                <x:String>200</x:String>
+                                <x:String>500</x:String>
+                            </ListCollection:List>
+                        </combobox:SfComboBox.ComboBoxSource>
+                        <combobox:SfComboBox.DropDownButtonSettings>
+                            <combobox:DropDownButtonSettings>
+                                <combobox:DropDownButtonSettings.View>
+                                    <Label
+                                        FontFamily="{StaticResource FontIcons}"
+                                        FontSize="25"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{StaticResource DropDownButtonIcon}"
+                                        TextColor="{DynamicResource Gray-600}"
+                                        VerticalTextAlignment="Center" />
+                                </combobox:DropDownButtonSettings.View>
+                            </combobox:DropDownButtonSettings>
+                        </combobox:SfComboBox.DropDownButtonSettings>
+                    </combobox:SfComboBox>
+                </border:SfBorder>
+
+            </StackLayout>
+
+            <maps:SfMaps x:Name="sfmap" 
+                         BackgroundColor="White" 
+                         Grid.Row="1"
+                         EnableZooming="True" MaxZoom="10"
+                         EnablePanning="True">
+                <maps:SfMaps.Layers>
+                    <maps:ImageryLayer x:Name="map" 
+                                       MarkerTemplate="{StaticResource Key=markerTemplate}"
+                                       Markers="{Binding ViewMarkers}"
+                                       >                        
+                    </maps:ImageryLayer>
+                </maps:SfMaps.Layers>
+            </maps:SfMaps>
+            <Label Grid.Row="1" TextColor="{DynamicResource Gray-900}" 
+                                VerticalOptions="EndAndExpand" FontFamily="{StaticResource Montserrat-Regular}"
+                                FontSize="{DynamicResource Fourteen}"
+                               
+                                Text="{Binding TotalNotes, StringFormat='Total notes: {0}'}"></Label>
+           
+
+        </Grid>
+        
+    </ContentPage.Content>
+
+
+</ContentPage>
