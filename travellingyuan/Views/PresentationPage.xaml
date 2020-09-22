@@ -7,8 +7,8 @@
              x:Class="travellingyuan.Views.PresentationPage"                 
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"
-             Padding="20,40,20,20"
-              Visual="Material" >
+             Padding="20,25,20,20"
+             Visual="Material" >
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary Source="Sync/Styles.xaml" />

@@ -154,8 +154,10 @@ namespace travellingyuan.ViewModels
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
+            
             Uploads = Task.Run(GetUploads).Result;
             TotalNotes= Uploads.Select(s => s.SerialNumber).Distinct().Count();
+            
         }
 
 

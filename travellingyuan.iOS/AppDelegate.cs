@@ -32,7 +32,8 @@ namespace travellingyuan.iOS
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzEwOTEwQDMxMzgyZTMyMmUzMEt3ZGc2SjM1Z0dGcEVYdzc1KzY4K3l1RURTQjR0RXN4SkpyNzMvR2M1MWs9");
             global::Xamarin.Forms.Forms.Init();
-            
+            global::Xamarin.Forms.FormsMaterial.Init();
+
             AppCenter.Start("fc96f24b-04b6-490d-a920-7ed0956a5bee", typeof(Analytics), typeof(Crashes));
             AppsFlyerLib.Shared.AppleAppID = "1511015537";
             AppsFlyerLib.Shared.AppsFlyerDevKey = AppSettings.AppsFlyerDevKey;

@@ -6,7 +6,7 @@
             prism:ViewModelLocator.AutowireViewModel="True"  
             prism:Navigation.CanNavigate="False"     
             NavigationPage.HasNavigationBar="False"
-            BarBackgroundColor="#98A3A7"
+            BarBackgroundColor="#E17777"
             BarTextColor="{StaticResource Gray-Black}"
             SelectedTabColor="{StaticResource Gray-Black}"
             UnselectedTabColor="{StaticResource Gray-White}"
