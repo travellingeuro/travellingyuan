@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:src="@drawable/chinamapv"/>
+  <item android:src="@drawable/screen"/>
 </layer-list>

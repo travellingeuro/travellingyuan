@@ -202,13 +202,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon_Prism.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Launching.imageset\chinamapv.png">
+    <ImageAsset Include="Assets.xcassets\Launching.imageset\chinasplash.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Launching.imageset\chinamapv@2x.png">
+    <ImageAsset Include="Assets.xcassets\Launching.imageset\chinasplash@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Launching.imageset\chinamapv@3x.png">
+    <ImageAsset Include="Assets.xcassets\Launching.imageset\chinasplash@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Launching.imageset\Contents.json">
