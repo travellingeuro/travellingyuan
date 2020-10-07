@@ -513,8 +513,8 @@ namespace travellingyuan.ViewModels
                         var newnote = new Notes { SerialNumber = SerialNumber.ToUpper(), Value = (string)NoteValue, MintsId = Id };
                         await addnoteService.PostNote(newnote);
                         await dialogService.ShowAlertAsync(
-                            $"{newnote.Value} € bill {newnote.SerialNumber} Has been added",
-                            "Congratulations",
+                            $"CNY {newnote.Value} bill {newnote.SerialNumber} has been added",
+                            "New bill",
                             "OK");
                         await Addmintupload(Mints.FirstOrDefault());
 
@@ -564,7 +564,7 @@ namespace travellingyuan.ViewModels
                 var id = notes.FirstOrDefault().Id;
                 Uploads mintsupload = new Uploads
                 {
-                    UsersId = 11,
+                    UsersId = 1,
                     UploadDate = new DateTime(2002, 1, 1),
                     NotesId = id,
                     Longitude = mint.Longitude,
@@ -575,11 +575,11 @@ namespace travellingyuan.ViewModels
                 };
                 await addnoteService.PostUpload(mintsupload);
 
-                await dialogService.ShowAlertAsync(
-                $"New note added in {mintsupload.Address}\n" +
-                $" {mintsupload.Comments}",
-                "Congratulations",
-                "OK");
+                //await dialogService.ShowAlertAsync(
+                //$"New note added in {mintsupload.Address}\n" +
+                //$" {mintsupload.Comments}",
+                //"Congratulations",
+                //"OK");
 
                 await Addclientupload(notes.FirstOrDefault());
             }
@@ -742,8 +742,10 @@ namespace travellingyuan.ViewModels
                 await addnoteService.PostUpload(clientupload);
 
                 await dialogService.ShowAlertAsync(
-                    $"{clientupload.Address} € bill {clientupload.Comments} Has been added",
-                    "Congratulations",
+                    $" CNY {note.Value} bill in  {clientupload.Address} \n " +
+                    $"with comments: {clientupload.Comments} \n" +
+                    $"Has been added",
+                    "New location for bill",
                     "OK");
 
                 await NotificationService.SendNotification(SerialNumber);
