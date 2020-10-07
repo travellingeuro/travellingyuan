@@ -33,10 +33,16 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <ContentPage.ControlTemplate>
-        <ControlTemplate>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+            <!--Heading-->
+
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}" Grid.Row="0">
 
                 <controls:AdMobView />
 
@@ -63,136 +69,135 @@
 
                 </StackLayout>
                 <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
-                <ContentPresenter />
+
             </StackLayout>
-        </ControlTemplate>
-    </ContentPage.ControlTemplate>
-    <ContentPage.Content>
 
 
-        <Grid RowSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="8*" />
-            </Grid.RowDefinitions>
+            <!--Listview-->
 
-            <ActivityIndicator 
+            <Grid RowSpacing="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ActivityIndicator 
                     Color="{StaticResource Theme}"
                     IsRunning="{Binding IsBusy}" 
                     IsVisible="{Binding IsBusy}" />
 
-            <StackLayout Grid.Row="0" BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
-                <!--tracking of serial number-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
+                <StackLayout Grid.Row="0" BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+                    <!--tracking of serial number-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             Margin="0,4"
                             HeightRequest="18" 
                             FontSize="{DynamicResource Twelve}"
                             Text="Tracking of: "
                             TextColor="{DynamicResource Gray-800}" />
-                    <Label Grid.Column="1"
+                        <Label Grid.Column="1"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             Margin="0,4"
                             HeightRequest="18" 
                             FontSize="{DynamicResource Twelve}"
                             Text="{Binding Upload.SerialNumber}"
                             TextColor="{DynamicResource Gray-800}" />
-                </Grid>
-                <!--Value Line-->
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"                           
+                    </Grid>
+                    <!--Value Line-->
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"                           
                             FontFamily="{StaticResource Montserrat-Medium}"
                             Margin="0,4"
                             HeightRequest="18" 
                             FontSize="{DynamicResource Twelve}"
                             Text="{Binding Upload.Value}"
                             TextColor="{DynamicResource Gray-800}" />
-                    <Label Grid.Column="1"
+                        <Label Grid.Column="1"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             Margin="0,4"
                             HeightRequest="18" 
                             FontSize="{DynamicResource Twelve}"
-                            Text="€ bill "
+                            Text="CNY bill "
                             TextColor="{DynamicResource Gray-800}" />
-                </Grid>
+                    </Grid>
 
-                <!--See on map line-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                    <!--See on map line-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <Label Grid.Column="0"
+                        <Label Grid.Column="0"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             Margin="0,4"
                             HeightRequest="18" 
                             FontSize="{DynamicResource Twelve}"
                             Text="See on map"
                             TextColor="{DynamicResource Gray-800}" />
-                    <Label Grid.Column="1"                        
+                        <Label Grid.Column="1"                        
                             Margin="0,4"
                             Style="{StaticResource IconLabelStyle}"
                             Text="{StaticResource Map}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding MapTapCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </Grid>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding MapTapCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
 
-            </StackLayout>
-            <BoxView   Grid.Row="1" Style="{StaticResource SeparatorStyle}" />
-            <StackLayout Grid.Row="2" BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+                </StackLayout>
+                <BoxView   Grid.Row="1" Style="{StaticResource SeparatorStyle}" />
+                <StackLayout Grid.Row="2" BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
 
-                <ListView
+                    <ListView
                     x:Name="listviewnotes" 
                               ItemsSource="{Binding ExtendedUploads}"
                               HasUnevenRows="True"                     
                               ItemSelected="Listviewnotes_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <!--  View of each card item  -->
-                                <StackLayout BackgroundColor="{DynamicResource Gray-White}" Spacing="0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!--  View of each card item  -->
+                                    <StackLayout BackgroundColor="{DynamicResource Gray-White}" Spacing="0">
 
-                                    <Grid Margin="16,8,0,8"  ColumnSpacing="0" RowSpacing="0" >
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                                        <Grid Margin="16,8,0,8"  ColumnSpacing="0" RowSpacing="0" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
 
-                                        <border:SfBorder  BackgroundColor="{DynamicResource Gray-200}"
+                                            <border:SfBorder  BackgroundColor="{DynamicResource Gray-200}"
                                             Style="{StaticResource ProfileBorderStyle}" HorizontalOptions="Start">
-                                            <Image HeightRequest="110" WidthRequest="100" BackgroundColor="{DynamicResource Gray-200}" 
+                                                <Image HeightRequest="110" WidthRequest="100" BackgroundColor="{DynamicResource Gray-200}" 
                                                    Aspect="AspectFill" >
-                                                <Image.Source>
-                                                    <UriImageSource
+                                                    <Image.Source>
+                                                        <UriImageSource
                                                              CacheValidity="14"
                                                              CachingEnabled="true"
                                                              Uri="{Binding ItemImage}"/>
-                                                </Image.Source>
-                                            </Image>
-                                        </border:SfBorder>
+                                                    </Image.Source>
+                                                </Image>
+                                            </border:SfBorder>
 
-                                        <StackLayout Grid.Column="1"
+                                            <StackLayout Grid.Column="1"
                                             Margin="16,5"
                                             HorizontalOptions="Start"
                                             Spacing="2"
                                             VerticalOptions="FillAndExpand">
 
-                                            <!--  Upload Date  -->
-                                            <Label 
+                                                <!--  Upload Date  -->
+                                                <Label 
                                                     FontFamily="{StaticResource Montserrat-Medium}"
                                                     FontSize="{DynamicResource Ten}" 
                                                     LineHeight="{OnPlatform Android=1.5,
@@ -200,8 +205,8 @@
                                                     Text="{Binding UploadDate, StringFormat='{}{0:dd/MM/yyyy}'}"
                                                     TextColor="{DynamicResource Gray-800}" />
 
-                                            <!--  Upload address  -->
-                                            <Label 
+                                                <!--  Upload address  -->
+                                                <Label 
                                                     FontFamily="{StaticResource Montserrat-Medium}"
                                                     FontSize="{DynamicResource Eight}"
                                                     LineHeight="{OnPlatform Android=1.25,
@@ -209,26 +214,27 @@
                                                     Text="{Binding Address}"
                                                     TextColor="{DynamicResource Gray-700}" />
 
-                                            <!--  Comments  -->
-                                            <Label 
+                                                <!--  Comments  -->
+                                                <Label 
                                                      FontFamily="{StaticResource Montserrat-Medium}"
                                                      FontSize="{DynamicResource Ten}"
                                                      LineHeight="{OnPlatform Android=1.25,
                                                      Default=-1}"
                                                      Text="{Binding Comments}"
                                                      TextColor="{DynamicResource PrimaryColor}" />
-                                        </StackLayout>
+                                            </StackLayout>
 
-                                    </Grid>
-                                    <!--  Separator -->
-                                    <BoxView Style="{StaticResource SeparatorStyle}" />
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
+                                        </Grid>
+                                        <!--  Separator -->
+                                        <BoxView Style="{StaticResource SeparatorStyle}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
 
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

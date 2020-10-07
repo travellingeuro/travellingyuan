@@ -151,6 +151,15 @@ namespace travellingyuan {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No track of that bill. Tell us about it..
+        /// </summary>
+        internal static string NotExisiting {
+            get {
+                return ResourceManager.GetString("NotExisiting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The resource you are looking for has been removed, had its name changed, or is temporarily unavailable..
         /// </summary>
         internal static string NotFound {

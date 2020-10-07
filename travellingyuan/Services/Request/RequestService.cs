@@ -64,6 +64,7 @@ namespace travellingyuan.Services.Request
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 throw new ConnectivityException();
+
             }
 
             var httpClient = new HttpClient();
@@ -81,10 +82,12 @@ namespace travellingyuan.Services.Request
 
                 if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.NotFound)
                 {
-                    throw new Exception(content);
+                    //throw new Exception(content);
+                    return;
                 }
 
-                throw new HttpRequestException(content);
+                // throw new HttpRequestException(content);
+                return;
             }
 
 

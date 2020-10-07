@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace travellingyuan.Helper
+    //This here is set for EURO. For the Chines no check is necesary. They can be free as birds:)
 {
     class Checkvalue
     {
@@ -19,65 +20,65 @@ namespace travellingyuan.Helper
                 return false;
             }
 
-            if (serial.Length != 12)
-            {
+            //if (serial.Length != 12)
+            //{
 
-                Message = "Serial Number must be 12 characters long and it must begin with a letter";
-                return false;
-            }
+            //    Message = "Serial Number must be 12 characters long and it must begin with a letter";
+            //    return false;
+            //}
 
-            if (!Checkfirstletter(serial))
-            {
-                Message = "Serial Number must begin with a letter";
-                return false;
-            }
+            //if (!Checkfirstletter(serial))
+            //{
+            //    Message = "Serial Number must begin with a letter";
+            //    return false;
+            //}
 
-            if (!Isfirstlettervalid(serial.ToUpper()))
-            {
-                Message = "Not a valid initial letter";
-                return false;
-            }
-            if (!Isnumbervalid(serial))
-            {
-                Message = "Not a valid serial number. Check it again";
-                return false;
-            }
+            //if (!Isfirstlettervalid(serial.ToUpper()))
+            //{
+            //    Message = "Not a valid initial letter";
+            //    return false;
+            //}
+            //    if (!Isnumbervalid(serial))
+            //    {
+            //        Message = "Not a valid serial number. Check it again";
+            //        return false;
+            //    }
             return true;
         }
 
-        public bool Checkfirstletter(string serial)
-        {
-            char firstletter = serial.ToCharArray().ElementAt(0);
-            return char.IsLetter(firstletter) ? true : false;
-        }
+        //public bool Checkfirstletter(string serial)
+        //{
+        //    char firstletter = serial.ToCharArray().ElementAt(0);
+        //    return char.IsLetter(firstletter) ? true : false;
+        //}
 
-        public bool Isfirstlettervalid(string serial)
-        {
+        //public bool Isfirstlettervalid(string serial)
+        //{
 
-            Dictionary<char, int> dict = new Dictionary<char, int>()
-                                            {
-                                            {'P',1},{'Y',1 } ,{'G',1},{'F',2}, {'X',2},{'E',3},
-                                            {'N','3'},{'D',4},{'M',4},{'V',4},{'U',5},{'L',5},{'T',6},
-                                            {'S',7},{'R',8},{'H',9},{'Z',9},{'W',3}
-                                            };
-            return dict.ContainsKey(serial.ToUpper().ToCharArray().ElementAt(0)) ? true : false;
-        }
+        //    Dictionary<char, int> dict = new Dictionary<char, int>()
+        //                                    {
+        //                                    {'P',1},{'Y',1 } ,{'G',1},{'F',2}, {'X',2},{'E',3},
+        //                                    {'N','3'},{'D',4},{'M',4},{'V',4},{'U',5},{'L',5},{'T',6},
+        //                                    {'S',7},{'R',8},{'H',9},{'Z',9},{'W',3}
+        //                                    };
+        //    return dict.ContainsKey(serial.ToUpper().ToCharArray().ElementAt(0)) ? true : false;
+        //}
 
-        public bool Isnumbervalid(string serial)
-        {
-            string serialupper = serial.ToUpper();
-            var letter = new int();
-            foreach (char x in serialupper)
-            {
-                if (char.IsLetter(x))
-                {
-                    letter = letter + (int)x;
-                    serialupper = serialupper.TrimStart(x);
-                }
-            }
-            var sum = serialupper.Sum(c => c - '0');
-            int cheksum = sum + letter;
-            return cheksum % 9 == 0 ? true : false;
-        }
+        //public bool Isnumbervalid(string serial)
+        //{
+        //    string serialupper = serial.ToUpper();
+        //    var letter = new int();
+        //    foreach (char x in serialupper)
+        //    {
+        //        if (char.IsLetter(x))
+        //        {
+        //            letter = letter + (int)x;
+        //            serialupper = serialupper.TrimStart(x);
+        //        }
+        //    }
+        //    var sum = serialupper.Sum(c => c - '0');
+        //    int cheksum = sum + letter;
+        //    return cheksum % 9 == 0 ? true : false;
+        //}
     }
 }

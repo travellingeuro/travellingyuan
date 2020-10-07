@@ -147,6 +147,9 @@
   <data name="NoPicture" xml:space="preserve">
     <value>No picture was found, please try again</value>
   </data>
+  <data name="NotExisiting" xml:space="preserve">
+    <value>No track of that bill. Tell us about it.</value>
+  </data>
   <data name="NotFound" xml:space="preserve">
     <value>The resource you are looking for has been removed, had its name changed, or is temporarily unavailable.</value>
   </data>
