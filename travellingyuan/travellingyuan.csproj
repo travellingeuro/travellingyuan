@@ -6,26 +6,26 @@
 
   <ItemGroup>
     <None Remove="Images\banner.png" />
-    <None Remove="Images\binladen.gif" />
     <None Remove="Images\fifty.gif" />
     <None Remove="Images\five.gif" />
-    <None Remove="Images\onehundred.gif" />
+    <None Remove="Images\hundred.gif" />
+    <None Remove="Images\one.gif" />
     <None Remove="Images\specimen.gif" />
     <None Remove="Images\ten.gif" />
     <None Remove="Images\twenty.gif" />
-    <None Remove="Images\twohundred.gif" />
+    <None Remove="Images\two.gif" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\binladen.gif" />
+    <EmbeddedResource Include="Images\banner.png" />
     <EmbeddedResource Include="Images\fifty.gif" />
     <EmbeddedResource Include="Images\five.gif" />
-    <EmbeddedResource Include="Images\onehundred.gif" />
+    <EmbeddedResource Include="Images\hundred.gif" />
+    <EmbeddedResource Include="Images\one.gif" />
     <EmbeddedResource Include="Images\specimen.gif" />
     <EmbeddedResource Include="Images\ten.gif" />
     <EmbeddedResource Include="Images\twenty.gif" />
-    <EmbeddedResource Include="Images\twohundred.gif" />
-    <EmbeddedResource Include="Images\banner.png" />
+    <EmbeddedResource Include="Images\two.gif" />
   </ItemGroup>
 
   <ItemGroup>

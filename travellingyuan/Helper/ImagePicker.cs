@@ -13,8 +13,14 @@ namespace travellingyuan.Helper
 		{
 			switch (value)
 			{
-                case 5:
-					Image= ImageSource.FromResource("travellingyuan.Images.five.gif");
+                case 1:
+					Image= ImageSource.FromResource("travellingyuan.Images.one.gif");
+					break;
+				case 2:
+					Image = ImageSource.FromResource("travellingyuan.Images.two.gif");
+					break;
+				case 5:
+					Image = ImageSource.FromResource("travellingyuan.Images.five.gif");
 					break;
 				case 10:
 					Image = ImageSource.FromResource("travellingyuan.Images.ten.gif");
@@ -26,13 +32,7 @@ namespace travellingyuan.Helper
 					Image = ImageSource.FromResource("travellingyuan.Images.fifty.gif");
 					break;
 				case 100:
-					Image = ImageSource.FromResource("travellingyuan.Images.onehundred.gif");
-					break;
-				case 200:
-					Image = ImageSource.FromResource("travellingyuan.Images.twohundred.gif");
-					break;
-				case 500:
-					Image = ImageSource.FromResource("travellingyuan.Images.binladen.gif");
+					Image = ImageSource.FromResource("travellingyuan.Images.hundred.gif");
 					break;
 				default:
 					Image = ImageSource.FromResource("travellingyuan.Images.specimen.gif");

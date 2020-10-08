@@ -39,13 +39,17 @@ namespace travellingyuan.ViewModels
 
 
         //Commands
-        public ICommand FocusOriginCommand { get; set; }
+  
         public DelegateCommand ShowSpecimenCommand { get; set; }
         public DelegateCommand ScanCommand { get; set; }
         public DelegateCommand AddCommand { get; set; }
-        public DelegateCommand ViewMapCommand { get; set; }
-        public DelegateCommand AddAnotherCommand { get; set; }
-        public DelegateCommand NavigateToUploadsCommand { get; set; }
+
+        private DelegateCommand viewmapcommand;
+        public DelegateCommand ViewMapCommand =>
+           viewmapcommand ?? (viewmapcommand = new DelegateCommand(ViewonMapMethod, () => IsViewonMapEnable).ObservesProperty(() => IsViewonMapEnable));
+        //public DelegateCommand ViewMapCommand { get; private set; }
+        public DelegateCommand AddAnotherCommand { get; private set; }
+        public DelegateCommand NavigateToUploadsCommand { get; private set; }
         public DelegateCommand GoBackCommand { get; set; }
 
 
@@ -189,7 +193,7 @@ namespace travellingyuan.ViewModels
             this.ShowSpecimenCommand = new DelegateCommand(ShowSpecimenAsyncMethod);
             this.ScanCommand = new DelegateCommand(async () => await ScanAsyncMethod());
             this.AddCommand = new DelegateCommand(AddMethod);
-            this.ViewMapCommand = new DelegateCommand(ViewonMapMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
+            //this.ViewMapCommand = new DelegateCommand(ViewonMapMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.AddAnotherCommand = new DelegateCommand(AddAnotherMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.NavigateToUploadsCommand = new DelegateCommand(NavigateToUploadsMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.GoBackCommand = new DelegateCommand(GoBackMethod);
@@ -372,7 +376,7 @@ namespace travellingyuan.ViewModels
             if (SerialNumber == null | SelectedPlace == null | Comments == null | Email == null)
 
             {
-                await dialogService.ShowAlertAsync("Review your entry", Resources.ErrorTitle, Resources.DialogOk);
+                await dialogService.ShowAlertAsync("Review your entry. Fill all entries please", Resources.ErrorTitle, Resources.DialogOk);
             }
             else
             {
@@ -449,7 +453,7 @@ namespace travellingyuan.ViewModels
             finally
             {
                 IsBusy = false;
-                await NavigationService.NavigateAsync("AddNote");
+                
             }
 
         }
@@ -513,7 +517,7 @@ namespace travellingyuan.ViewModels
                         var newnote = new Notes { SerialNumber = SerialNumber.ToUpper(), Value = (string)NoteValue, MintsId = Id };
                         await addnoteService.PostNote(newnote);
                         await dialogService.ShowAlertAsync(
-                            $"CNY {newnote.Value} bill {newnote.SerialNumber} has been added",
+                            $"{newnote.Value} Yuan bill {newnote.SerialNumber} has been added",
                             "New bill",
                             "OK");
                         await Addmintupload(Mints.FirstOrDefault());
@@ -723,6 +727,7 @@ namespace travellingyuan.ViewModels
         {
             try
             {
+                IsViewonMapEnable = true;
                 IsBusy = true;
                 string client = (string)App.Current.Properties["user"];
                 var user = await userService.GetUserEmail(client);
@@ -742,7 +747,7 @@ namespace travellingyuan.ViewModels
                 await addnoteService.PostUpload(clientupload);
 
                 await dialogService.ShowAlertAsync(
-                    $" CNY {note.Value} bill in  {clientupload.Address} \n " +
+                    $" {note.Value} Yuan bill in  {clientupload.Address} \n " +
                     $"with comments: {clientupload.Comments} \n" +
                     $"Has been added",
                     "New location for bill",
@@ -781,7 +786,7 @@ namespace travellingyuan.ViewModels
             finally
             {
                 IsBusy = false;
-                IsViewonMapEnable = true;
+                
             }
 
         }
@@ -797,7 +802,7 @@ namespace travellingyuan.ViewModels
             //check parameters for "SerialNumber"
             SerialNumber = (string)parameters["SerialNumber"] ?? null;
 
-            IsViewonMapEnable = false;
+           
         }
     }
 
