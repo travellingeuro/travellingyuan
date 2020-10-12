@@ -509,7 +509,12 @@ namespace travellingyuan.ViewModels
                 }
                 else //Note doesn't exist.
                 {
-                    var letter = SerialNumber[0];
+                    //assign a mint randomly
+                    var codelist = new List<string>() { "A", "B", "C", "D", "F" };
+                    Random random = new Random();
+                    var index = random.Next(0,4);
+                    var letter = codelist[0];
+                    //get mint information
                     var Mints = await addnoteService.GetMintCode(letter.ToString());
                     if (Mints.Any())
                     {

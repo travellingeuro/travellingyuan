@@ -20,7 +20,7 @@ namespace travellingyuan
         //Other services
         const string defaultCognitiveServiceKey = "27a4453a28ab4df8af50d22fed37bcc0";
         const string defaultGooglePlacesApiKey = "AIzaSyAA5f_usWVL2jbldPd4KDKFFZIrMuKYD6U";
-        const string defaultGoogleMapsIosKey = "AIzaSyCgNTU_EGivVGG9uS2FrvkdRinGzAmd99g";
+        
 
 
         //EndPoints
@@ -38,7 +38,7 @@ namespace travellingyuan
         {
             BaseAddress = "https://travellingyuanwebapi.azurewebsites.net";
             defautlSearchEndPoint = $"{BaseAddress}/api/notes/";
-            defaultUserEndPoint = $"{BaseAddress}t/api/users/";
+            defaultUserEndPoint = $"{BaseAddress}/api/users/";
             defaultUploadsEndPoint = $"{BaseAddress}/api/Uploads/";
             defaultMintsEndPoint = $"{BaseAddress}/api/mints/"; 
             defaultSMSEndPoint = $"{BaseAddress}/api/sms"; 
@@ -104,11 +104,6 @@ namespace travellingyuan
             set => Preferences.Set(nameof(GooglePlacesApiKey), value);
         }
 
-        public static string GoogleMapsIosKey
-        {
-            get => Preferences.Get(nameof(GoogleMapsIosKey), defaultGoogleMapsIosKey);
-            set => Preferences.Set(nameof(GoogleMapsIosKey), value);
-        }
 
         public static string SearchEndPoint
         {
