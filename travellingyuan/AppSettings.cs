@@ -17,10 +17,20 @@ namespace travellingyuan
         //AppsFlyer DeveloperKey
         const string defaultAppsFlyerDevKey = "mev2fD4zJwnzjJhAGYd3SH";
 
-        //Other services
+        //Cognitive services
         const string defaultCognitiveServiceKey = "27a4453a28ab4df8af50d22fed37bcc0";
+
+        //Places 
         const string defaultGooglePlacesApiKey = "AIzaSyAA5f_usWVL2jbldPd4KDKFFZIrMuKYD6U";
-        
+
+        //Syncfucsion
+        const string defaultSyncfusionKey = "MzEwOTEwQDMxMzgyZTMyMmUzMEt3ZGc2SjM1Z0dGcEVYdzc1KzY4K3l1RURTQjR0RXN4SkpyNzMvR2M1MWs9";
+
+
+        //AppCenter
+        const string defaultAppCenterAndroidKey = "93ae46ad-ed4c-40ca-82df-e12c3fdab482";
+        const string defaultAppCenteriOSKey = "fc96f24b-04b6-490d-a920-7ed0956a5bee";
+
 
 
         //EndPoints
@@ -104,6 +114,22 @@ namespace travellingyuan
             set => Preferences.Set(nameof(GooglePlacesApiKey), value);
         }
 
+        public static string SyncfusionKey
+        {
+            get => Preferences.Get(nameof(SyncfusionKey), defaultSyncfusionKey);
+            set => Preferences.Set(nameof(SyncfusionKey), value);
+        }
+
+        public static string AppCenterAndroidKey
+        {
+            get => Preferences.Get(nameof(AppCenterAndroidKey), defaultAppCenterAndroidKey);
+            set => Preferences.Set(nameof(AppCenterAndroidKey), value);
+        }
+        public static string AppCenteriOSKey
+        {
+            get => Preferences.Get(nameof(AppCenteriOSKey), defaultAppCenteriOSKey);
+            set => Preferences.Set(nameof(AppCenteriOSKey), value);
+        }
 
         public static string SearchEndPoint
         {

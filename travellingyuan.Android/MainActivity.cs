@@ -25,7 +25,7 @@ namespace travellingyuan.Droid
 
 
             Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, AppSettings.AndroidAdsKey);
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzEwOTEwQDMxMzgyZTMyMmUzMEt3ZGc2SjM1Z0dGcEVYdzc1KzY4K3l1RURTQjR0RXN4SkpyNzMvR2M1MWs9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(AppSettings.SyncfusionKey);
            
 
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -40,7 +40,7 @@ namespace travellingyuan.Droid
             AppsFlyerLib.Instance.Init(AppSettings.AppsFlyerDevKey, new AppsFlyerConversionDelegate(this), this.Application);
             AppsFlyerLib.Instance.StartTracking(this.Application, AppSettings.AppsFlyerDevKey);
 
-            AppCenter.Start("93ae46ad-ed4c-40ca-82df-e12c3fdab482;ios=fc96f24b-04b6-490d-a920-7ed0956a5bee", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start(AppSettings.AppCenterAndroidKey, typeof(Analytics), typeof(Crashes));
             LoadApplication(new App(new AndroidInitializer()));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
