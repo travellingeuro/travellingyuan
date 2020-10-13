@@ -3,7 +3,6 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.Widget;
-using Com.Appsflyer;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -17,8 +16,7 @@ namespace travellingyuan.Droid
     [Activity(Label = "travellingyuan", Icon = "@mipmap/logo", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        internal AppCompatTextView oaoaTextView;
-        internal AppCompatTextView gcdTextView;
+
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -37,10 +35,8 @@ namespace travellingyuan.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             global::Xamarin.Forms.FormsMaterial.Init(this, bundle);
             UserDialogs.Init(this);
-            AppsFlyerLib.Instance.Init(AppSettings.AppsFlyerDevKey, new AppsFlyerConversionDelegate(this), this.Application);
-            AppsFlyerLib.Instance.StartTracking(this.Application, AppSettings.AppsFlyerDevKey);
 
-            AppCenter.Start(AppSettings.AppCenterAndroidKey, typeof(Analytics), typeof(Crashes));
+            AppCenter.Start($"android={AppSettings.AppCenterAndroidKey};ios={AppSettings.AppCenteriOSKey}", typeof(Analytics), typeof(Crashes));
             LoadApplication(new App(new AndroidInitializer()));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)

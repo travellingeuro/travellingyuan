@@ -11,7 +11,6 @@ using Google.MobileAds;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using AppsFlyerXamarinBinding;
 
 namespace travellingyuan.iOS
 {
@@ -35,8 +34,6 @@ namespace travellingyuan.iOS
             global::Xamarin.Forms.FormsMaterial.Init();
 
             AppCenter.Start(AppSettings.AppCenteriOSKey, typeof(Analytics), typeof(Crashes));
-            AppsFlyerLib.Shared.AppleAppID = "1511015537";
-            AppsFlyerLib.Shared.AppsFlyerDevKey = AppSettings.AppsFlyerDevKey;
             SfMapsRenderer.Init();
             MobileAds.SharedInstance.Start(CompletionHandler);
             SfGradientViewRenderer.Init();
@@ -47,10 +44,6 @@ namespace travellingyuan.iOS
             return base.FinishedLaunching(app, options);
         }
 
-        public override void OnActivated(UIApplication application)
-        {
-            AppsFlyerLib.Shared.Start();
-        }
 
 
         private void CompletionHandler(InitializationStatus status) { }

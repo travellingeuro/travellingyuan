@@ -81,17 +81,14 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.454</Version>
     </PackageReference>
-    <PackageReference Include="AppsFlyerXamarinBindingAndroid">
-      <Version>5.4.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>3.4.2</Version>
+      <Version>3.4.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>3.4.2</Version>
+      <Version>3.4.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision">
-      <Version>5.0.0</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.3</Version>
@@ -100,16 +97,16 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>18.2.0.59</Version>
+      <Version>18.3.0.40</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>18.2.0.59</Version>
+      <Version>18.3.0.40</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
-      <Version>18.2.0.59</Version>
+      <Version>18.3.0.40</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfMaps">
-      <Version>18.2.0.59</Version>
+      <Version>18.3.0.40</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
@@ -123,7 +120,7 @@
     <PackageReference Include="Xamarin.Firebase.Ads">
       <Version>60.1142.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1534" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
@@ -132,11 +129,10 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1422" />
     <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.8.0.1451</Version>
+      <Version>4.8.0.1534</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppsFlyerConversionDelegate.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\AdMobViewRenderer.cs" />
     <Compile Include="Renderers\BorderlessEntryRenderer.cs" />
@@ -151,7 +147,6 @@
     <AndroidAsset Include="Assets\Montserrat-Regular.ttf" />
     <AndroidAsset Include="Assets\Montserrat-SemiBold.ttf" />
     <ProguardConfiguration Include="proguard.cfg" />
-    <AndroidAarLibrary Include="Lib\installreferrer-2.1.aar" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>

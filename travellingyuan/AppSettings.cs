@@ -24,7 +24,7 @@ namespace travellingyuan
         const string defaultGooglePlacesApiKey = "AIzaSyAA5f_usWVL2jbldPd4KDKFFZIrMuKYD6U";
 
         //Syncfucsion
-        const string defaultSyncfusionKey = "MzEwOTEwQDMxMzgyZTMyMmUzMEt3ZGc2SjM1Z0dGcEVYdzc1KzY4K3l1RURTQjR0RXN4SkpyNzMvR2M1MWs9";
+        const string defaultSyncfusionKey = "MzM0MDU4QDMxMzgyZTMzMmUzMGx4cDZKUlNtMDY2K3k4WnBCTlhJWTBiUTNDTFJDcDhieXNRcDZ5NHRIbUU9";
 
 
         //AppCenter

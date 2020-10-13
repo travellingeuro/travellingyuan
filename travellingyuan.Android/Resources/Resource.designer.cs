@@ -5760,6 +5760,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.mtrl_textinput_hovered_box_stroke_color = global::travellingyuan.Droid.Resource.Color.mtrl_textinput_hovered_box_stroke_color;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.notification_action_color_filter = global::travellingyuan.Droid.Resource.Color.notification_action_color_filter;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.notification_icon_bg_color = global::travellingyuan.Droid.Resource.Color.notification_icon_bg_color;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.notification_material_background_media_default_color = global::travellingyuan.Droid.Resource.Color.notification_material_background_media_default_color;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.primary_dark_material_dark = global::travellingyuan.Droid.Resource.Color.primary_dark_material_dark;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.primary_dark_material_light = global::travellingyuan.Droid.Resource.Color.primary_dark_material_light;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Color.primary_material_dark = global::travellingyuan.Droid.Resource.Color.primary_material_dark;
@@ -5991,6 +5992,10 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.notification_subtext_size = global::travellingyuan.Droid.Resource.Dimension.notification_subtext_size;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.notification_top_pad = global::travellingyuan.Droid.Resource.Dimension.notification_top_pad;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.notification_top_pad_large_text = global::travellingyuan.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.subtitle_corner_radius = global::travellingyuan.Droid.Resource.Dimension.subtitle_corner_radius;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.subtitle_outline_width = global::travellingyuan.Droid.Resource.Dimension.subtitle_outline_width;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.subtitle_shadow_offset = global::travellingyuan.Droid.Resource.Dimension.subtitle_shadow_offset;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.subtitle_shadow_radius = global::travellingyuan.Droid.Resource.Dimension.subtitle_shadow_radius;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.tooltip_corner_radius = global::travellingyuan.Droid.Resource.Dimension.tooltip_corner_radius;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.tooltip_horizontal_padding = global::travellingyuan.Droid.Resource.Dimension.tooltip_horizontal_padding;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Dimension.tooltip_margin = global::travellingyuan.Droid.Resource.Dimension.tooltip_margin;
@@ -6153,6 +6158,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.META = global::travellingyuan.Droid.Resource.Id.META;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.SHIFT = global::travellingyuan.Droid.Resource.Id.SHIFT;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.SYM = global::travellingyuan.Droid.Resource.Id.SYM;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.action0 = global::travellingyuan.Droid.Resource.Id.action0;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.action_bar = global::travellingyuan.Droid.Resource.Id.action_bar;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.action_bar_activity_content = global::travellingyuan.Droid.Resource.Id.action_bar_activity_content;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.action_bar_container = global::travellingyuan.Droid.Resource.Id.action_bar_container;
@@ -6189,6 +6195,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.browser_actions_menu_items = global::travellingyuan.Droid.Resource.Id.browser_actions_menu_items;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.browser_actions_menu_view = global::travellingyuan.Droid.Resource.Id.browser_actions_menu_view;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.buttonPanel = global::travellingyuan.Droid.Resource.Id.buttonPanel;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.cancel_action = global::travellingyuan.Droid.Resource.Id.cancel_action;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.center = global::travellingyuan.Droid.Resource.Id.center;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.center_horizontal = global::travellingyuan.Droid.Resource.Id.center_horizontal;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.center_vertical = global::travellingyuan.Droid.Resource.Id.center_vertical;
@@ -6213,6 +6220,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.disableHome = global::travellingyuan.Droid.Resource.Id.disableHome;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.edit_query = global::travellingyuan.Droid.Resource.Id.edit_query;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.end = global::travellingyuan.Droid.Resource.Id.end;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.end_padder = global::travellingyuan.Droid.Resource.Id.end_padder;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.enterAlways = global::travellingyuan.Droid.Resource.Id.enterAlways;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.enterAlwaysCollapsed = global::travellingyuan.Droid.Resource.Id.enterAlwaysCollapsed;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.exitUntilCollapsed = global::travellingyuan.Droid.Resource.Id.exitUntilCollapsed;
@@ -6226,6 +6234,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.flyoutcontent_appbar = global::travellingyuan.Droid.Resource.Id.flyoutcontent_appbar;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.flyoutcontent_recycler = global::travellingyuan.Droid.Resource.Id.flyoutcontent_recycler;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.forever = global::travellingyuan.Droid.Resource.Id.forever;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.ghost_view = global::travellingyuan.Droid.Resource.Id.ghost_view;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.group_divider = global::travellingyuan.Droid.Resource.Id.group_divider;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.home = global::travellingyuan.Droid.Resource.Id.home;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.homeAsUp = global::travellingyuan.Droid.Resource.Id.homeAsUp;
@@ -6246,7 +6255,9 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.main_appbar = global::travellingyuan.Droid.Resource.Id.main_appbar;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.main_tablayout = global::travellingyuan.Droid.Resource.Id.main_tablayout;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.main_toolbar = global::travellingyuan.Droid.Resource.Id.main_toolbar;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.main_viewpager = global::travellingyuan.Droid.Resource.Id.main_viewpager;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.masked = global::travellingyuan.Droid.Resource.Id.masked;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.media_actions = global::travellingyuan.Droid.Resource.Id.media_actions;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.message = global::travellingyuan.Droid.Resource.Id.message;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.middle = global::travellingyuan.Droid.Resource.Id.middle;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.mini = global::travellingyuan.Droid.Resource.Id.mini;
@@ -6263,6 +6274,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.outline = global::travellingyuan.Droid.Resource.Id.outline;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.parallax = global::travellingyuan.Droid.Resource.Id.parallax;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.parentPanel = global::travellingyuan.Droid.Resource.Id.parentPanel;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.parent_matrix = global::travellingyuan.Droid.Resource.Id.parent_matrix;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.pin = global::travellingyuan.Droid.Resource.Id.pin;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.progress_circular = global::travellingyuan.Droid.Resource.Id.progress_circular;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.progress_horizontal = global::travellingyuan.Droid.Resource.Id.progress_horizontal;
@@ -6270,6 +6282,9 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.right = global::travellingyuan.Droid.Resource.Id.right;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.right_icon = global::travellingyuan.Droid.Resource.Id.right_icon;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.right_side = global::travellingyuan.Droid.Resource.Id.right_side;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.save_image_matrix = global::travellingyuan.Droid.Resource.Id.save_image_matrix;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.save_non_transition_alpha = global::travellingyuan.Droid.Resource.Id.save_non_transition_alpha;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.save_scale_type = global::travellingyuan.Droid.Resource.Id.save_scale_type;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.screen = global::travellingyuan.Droid.Resource.Id.screen;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.scroll = global::travellingyuan.Droid.Resource.Id.scroll;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.scrollIndicatorDown = global::travellingyuan.Droid.Resource.Id.scrollIndicatorDown;
@@ -6305,6 +6320,7 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.src_in = global::travellingyuan.Droid.Resource.Id.src_in;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.src_over = global::travellingyuan.Droid.Resource.Id.src_over;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.start = global::travellingyuan.Droid.Resource.Id.start;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.status_bar_latest_event_content = global::travellingyuan.Droid.Resource.Id.status_bar_latest_event_content;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.stretch = global::travellingyuan.Droid.Resource.Id.stretch;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.submenuarrow = global::travellingyuan.Droid.Resource.Id.submenuarrow;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.submit_area = global::travellingyuan.Droid.Resource.Id.submit_area;
@@ -6328,6 +6344,11 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.top = global::travellingyuan.Droid.Resource.Id.top;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.topPanel = global::travellingyuan.Droid.Resource.Id.topPanel;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.touch_outside = global::travellingyuan.Droid.Resource.Id.touch_outside;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.transition_current_scene = global::travellingyuan.Droid.Resource.Id.transition_current_scene;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.transition_layout_save = global::travellingyuan.Droid.Resource.Id.transition_layout_save;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.transition_position = global::travellingyuan.Droid.Resource.Id.transition_position;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.transition_scene_layoutid_cache = global::travellingyuan.Droid.Resource.Id.transition_scene_layoutid_cache;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.transition_transform = global::travellingyuan.Droid.Resource.Id.transition_transform;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.uniform = global::travellingyuan.Droid.Resource.Id.uniform;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.unlabeled = global::travellingyuan.Droid.Resource.Id.unlabeled;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Id.up = global::travellingyuan.Droid.Resource.Id.up;
@@ -6407,8 +6428,17 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.mtrl_layout_snackbar_include = global::travellingyuan.Droid.Resource.Layout.mtrl_layout_snackbar_include;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_action = global::travellingyuan.Droid.Resource.Layout.notification_action;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_action_tombstone = global::travellingyuan.Droid.Resource.Layout.notification_action_tombstone;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_media_action = global::travellingyuan.Droid.Resource.Layout.notification_media_action;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_media_cancel_action = global::travellingyuan.Droid.Resource.Layout.notification_media_cancel_action;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_big_media = global::travellingyuan.Droid.Resource.Layout.notification_template_big_media;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_big_media_custom = global::travellingyuan.Droid.Resource.Layout.notification_template_big_media_custom;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_big_media_narrow = global::travellingyuan.Droid.Resource.Layout.notification_template_big_media_narrow;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_big_media_narrow_custom = global::travellingyuan.Droid.Resource.Layout.notification_template_big_media_narrow_custom;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_custom_big = global::travellingyuan.Droid.Resource.Layout.notification_template_custom_big;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_icon_group = global::travellingyuan.Droid.Resource.Layout.notification_template_icon_group;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_lines_media = global::travellingyuan.Droid.Resource.Layout.notification_template_lines_media;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_media = global::travellingyuan.Droid.Resource.Layout.notification_template_media;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_media_custom = global::travellingyuan.Droid.Resource.Layout.notification_template_media_custom;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_part_chronometer = global::travellingyuan.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.notification_template_part_time = global::travellingyuan.Droid.Resource.Layout.notification_template_part_time;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Layout.RootLayout = global::travellingyuan.Droid.Resource.Layout.RootLayout;
@@ -6750,9 +6780,14 @@ namespace travellingyuan.Droid
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::travellingyuan.Droid.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Info = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Info_Media = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Info_Media;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Line2_Media = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2_Media;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Media = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Media;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Time = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Time_Media = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Time_Media;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Title = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Compat_Notification_Title_Media = global::travellingyuan.Droid.Resource.Style.TextAppearance_Compat_Notification_Title_Media;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded = global::travellingyuan.Droid.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Design_Counter = global::travellingyuan.Droid.Resource.Style.TextAppearance_Design_Counter;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Style.TextAppearance_Design_Counter_Overflow = global::travellingyuan.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow;
