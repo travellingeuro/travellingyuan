@@ -111,13 +111,13 @@
                                 VerticalOptions="CenterAndExpand">
                         <combobox:SfComboBox.ComboBoxSource>
                             <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
                                 <x:String>5</x:String>
                                 <x:String>10</x:String>
                                 <x:String>20</x:String>
                                 <x:String>50</x:String>
                                 <x:String>100</x:String>
-                                <x:String>200</x:String>
-                                <x:String>500</x:String>
                             </ListCollection:List>
                         </combobox:SfComboBox.ComboBoxSource>
                         <combobox:SfComboBox.DropDownButtonSettings>

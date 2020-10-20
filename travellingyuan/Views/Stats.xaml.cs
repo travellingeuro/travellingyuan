@@ -27,8 +27,8 @@ namespace travellingyuan.Views
             {
                 foreach (MapMarker marker in map.Markers)
                 {
-                    latitudes.Add(double.Parse(marker.Latitude, System.Globalization.CultureInfo.InvariantCulture));
-                    longitudes.Add(double.Parse(marker.Longitude, System.Globalization.CultureInfo.InvariantCulture));
+                    latitudes.Add(double.Parse(marker.Latitude, System.Globalization.NumberFormatInfo.CurrentInfo));
+                    longitudes.Add(double.Parse(marker.Longitude, System.Globalization.NumberFormatInfo.CurrentInfo));
                 }
             }
 
