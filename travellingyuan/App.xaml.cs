@@ -1,8 +1,10 @@
-﻿using Microsoft.AppCenter;
+﻿using MarcTron.Plugin;
+using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism;
 using Prism.Ioc;
+using Prism.Services;
 using travellingyuan.Services.AddNote;
 using travellingyuan.Services.Dialogs;
 using travellingyuan.Services.Notification;
@@ -14,6 +16,7 @@ using travellingyuan.Services.SMS;
 using travellingyuan.Services.User;
 using travellingyuan.ViewModels;
 using travellingyuan.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,6 +37,9 @@ namespace travellingyuan
         protected override async void OnInitialized()
         {
             InitializeComponent();
+
+            CrossMTAdmob.Current.AdsId = DeviceInfo.Platform==DevicePlatform.iOS ? AppSettings.IosAds : AppSettings.AndroidAds;
+
             AppCenter.Start($"android={AppSettings.AppCenterAndroidKey};ios={AppSettings.AppCenteriOSKey}",
                 typeof(Analytics), typeof(Crashes));
 

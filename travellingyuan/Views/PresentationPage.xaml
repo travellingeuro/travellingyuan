@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:travellingyuan.MarkupExtension"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
              xmlns:controls="clr-namespace:travellingyuan.Controls"
+             xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="travellingyuan.Views.PresentationPage"                 
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"
@@ -17,7 +18,8 @@
 
     <StackLayout>
 
-        <controls:AdMobView />
+        <!--<controls:AdMobView />-->
+        <ads:MTAdView/>
 
         <Image  Aspect="AspectFit"
                 Source ="{local:EmbeddedImage travellingyuan.Images.banner.png}"  

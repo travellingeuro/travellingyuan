@@ -236,6 +236,9 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.454</Version>
     </PackageReference>
+    <PackageReference Include="MarcTron.Admob">
+      <Version>1.5.8</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>3.4.3</Version>
     </PackageReference>
