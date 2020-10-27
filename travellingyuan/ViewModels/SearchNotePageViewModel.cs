@@ -177,7 +177,8 @@ namespace travellingyuan.ViewModels
 
         private async void ShowSpecimenAsyncMethod()
         {
-            await NavigationService.NavigateAsync("SpecimenPage", useModalNavigation: true);
+            var param = new NavigationParameters();
+            await NavigationService.NavigateAsync("SpecimenPage", param,true,true);
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

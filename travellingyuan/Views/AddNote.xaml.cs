@@ -1,4 +1,5 @@
 ﻿using MarcTron.Plugin;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
