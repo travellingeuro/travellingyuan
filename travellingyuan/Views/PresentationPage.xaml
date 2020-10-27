@@ -19,7 +19,15 @@
     <StackLayout>
 
         <!--<controls:AdMobView />-->
-        <ads:MTAdView/>
+        <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+            <ads:MTAdView.HeightRequest>
+                <x:OnIdiom>
+                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                </x:OnIdiom>
+            </ads:MTAdView.HeightRequest>
+        </ads:MTAdView>
 
         <Image  Aspect="AspectFit"
                 Source ="{local:EmbeddedImage travellingyuan.Images.banner.png}"  
@@ -128,11 +136,19 @@
         </ScrollView>
 
 
-        <StackLayout VerticalOptions="EndAndExpand">
+        <StackLayout VerticalOptions="EndAndExpand" Orientation="Vertical">
+            <Label
+                HorizontalOptions="Center"
+                Style="{StaticResource LabelStyle}"
+                Text="Show Video Ad">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
 
-            <controls:AdMobView>
+            <controls:AdMobView/>
 
-            </controls:AdMobView>
+
 
         </StackLayout>
 

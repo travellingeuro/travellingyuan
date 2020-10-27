@@ -29,7 +29,7 @@ namespace travellingyuan.Droid.Renderers
             base.OnElementPropertyChanged(sender, e);
 
             if (e.PropertyName == nameof(AdView.AdUnitId))
-                Control.AdUnitId = AppSettings.AndroidAds;
+                Control.AdUnitId = AppSettings.SampleAndroidAds;
         }
 
         private int GetSmartBannerDpHeight()
@@ -46,7 +46,7 @@ namespace travellingyuan.Droid.Renderers
             var adView = new AdView(Context)
             {
                 AdSize = AdSize.Banner,
-                AdUnitId = AppSettings.AndroidAds
+                AdUnitId = AppSettings.SampleAndroidAds
             };
 
             adView.LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);

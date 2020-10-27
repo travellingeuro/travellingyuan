@@ -82,7 +82,8 @@ namespace travellingyuan.ViewModels
                         Address = upload.Address,
                         Comments = upload.Comments,
                         UploadDate = upload.UploadDate,
-                        ItemImage = uri
+                        ItemImage = uri,
+                        Name=upload.Name
                     };
                     exup.Add(extended);
                 }
@@ -93,6 +94,7 @@ namespace travellingyuan.ViewModels
                         Address = upload.Address,
                         Comments = upload.Comments,
                         UploadDate = upload.UploadDate,
+                        Name=upload.Name
                     };
                     exup.Add(extended);
 

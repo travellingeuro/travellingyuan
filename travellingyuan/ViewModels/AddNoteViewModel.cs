@@ -571,6 +571,7 @@ namespace travellingyuan.ViewModels
                 IsBusy = true;
                 var notes = await addnoteService.GetSearchAsync(SerialNumber);
                 var id = notes.FirstOrDefault().Id;
+                var mintname = new MintPicker();
                 Uploads mintsupload = new Uploads
                 {
                     UsersId = 1,
@@ -580,7 +581,8 @@ namespace travellingyuan.ViewModels
                     Latitude = mint.Latitude,
                     Address = mint.Address,
                     Location = mint.Location,
-                    Comments = mint.Comments
+                    Comments = mint.Comments,
+                    Name=$"National Bank of China, {mintname.Picker(mint.Id)}"
                 };
                 await addnoteService.PostUpload(mintsupload);
 
@@ -746,6 +748,7 @@ namespace travellingyuan.ViewModels
                     Latitude = (float)SelectedPlace.Latitude,
                     Address = SelectedPlace.Address,
                     Location = SelectedPlace.Location,
+                    Name=SelectedPlace.Name,
                     Comments = Comments
                 };
 

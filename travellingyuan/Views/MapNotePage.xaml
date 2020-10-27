@@ -59,6 +59,14 @@
                                LineHeight="{OnPlatform Android=1.5,Default=-1}"
                                HorizontalOptions="Start"/>
 
+                            <Label Text="{Binding Name}"                            
+                               TextColor="{DynamicResource Gray-800}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               LineBreakMode="WordWrap"                                 
+                               FontSize="{DynamicResource Ten}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}" 
+                               HorizontalOptions="Center"/>
+
                             <Label Text="{Binding Address}"                            
                                TextColor="{DynamicResource PrimaryColor}" 
                                FontFamily="{StaticResource Montserrat-Medium}" 

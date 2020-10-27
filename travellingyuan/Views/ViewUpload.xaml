@@ -204,6 +204,14 @@
                                                                              Default=-1}"
                                                     Text="{Binding UploadDate, StringFormat='{}{0:dd/MM/yyyy}'}"
                                                     TextColor="{DynamicResource Gray-800}" />
+                                                <!--  Upload name  -->
+                                                <Label 
+                                                    FontFamily="{StaticResource Montserrat-Medium}"
+                                                    FontSize="{DynamicResource Ten}"
+                                                    LineHeight="{OnPlatform Android=1.25,
+                                                                        Default=-1}"
+                                                    Text="{Binding Name}"
+                                                    TextColor="{DynamicResource PrimaryColor}" />
 
                                                 <!--  Upload address  -->
                                                 <Label 

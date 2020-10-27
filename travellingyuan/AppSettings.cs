@@ -5,14 +5,19 @@ namespace travellingyuan
     public static class AppSettings
     {
         //google ads keys
-        const string defaultAndroidAdsKey = "ca-app-pub-9800707284712065~1990749964";
-        const string defaultIosAdsKey = "ca-app-pub-9800707284712065~5378249062";
+        const string defaultAndroidAdsKey = "ca-app-pub-9800707284712065~8468670935";
+        const string defaultIosAdsKey = "ca-app-pub-9800707284712065~8862233239";
 
         //google ads id's
-        const string defaultAndroidAds = "ca-app-pub-9800707284712065/3418493654";
-        const string defaultIosAds = "ca-app-pub-9800707284712065/6044656994";
-        const string defaultSampleAndroidAds = "ca-app-pub-3940256099942544/6300978111";
-        const string defaultSampleIosAds = "ca-app-pub-3940256099942544/2934735716";
+        const string defaultAndroidAds = "ca-app-pub-3940256099942544/6300978111"; //sample
+        const string defaultIosAds = "ca-app-pub-3940256099942544/2934735716"; //sample
+        const string defaultSampleAndroidAds = "ca-app-pub-3940256099942544/6300978111"; //sample
+        const string defaultSampleIosAds = "ca-app-pub-3940256099942544/2934735716"; //sample
+        const string defaultInterstitialAndroid = "ca-app-pub-3940256099942544/8691691433"; //sample
+        const string defaultInterstitialiOS = "ca-app-pub-3940256099942544/5135589807"; //sample
+        const string defaultVideoAndroid = "ca-app-pub-3940256099942544/5224354917"; //sample
+        const string defaultVideoiOS = "ca-app-pub-3940256099942544/1712485313"; //sample
+
 
         //AppsFlyer DeveloperKey
         const string defaultAppsFlyerDevKey = "mev2fD4zJwnzjJhAGYd3SH";
@@ -31,7 +36,8 @@ namespace travellingyuan
         const string defaultAppCenterAndroidKey = "93ae46ad-ed4c-40ca-82df-e12c3fdab482";
         const string defaultAppCenteriOSKey = "fc96f24b-04b6-490d-a920-7ed0956a5bee";
 
-
+        //Display only one interstitial per sesion
+        const bool defaultshowintertitial = true;
 
         //EndPoints
         static readonly string defautlSearchEndPoint;
@@ -88,6 +94,29 @@ namespace travellingyuan
             set => Preferences.Set(nameof(SampleAndroidAds), value);
         }
 
+        public static string InterstitialAndroid
+        {
+            get => Preferences.Get(nameof(InterstitialAndroid), defaultInterstitialAndroid);
+            set => Preferences.Set(nameof(InterstitialAndroid), value);
+        }
+
+        public static string InterstitialiOS
+        {
+            get => Preferences.Get(nameof(InterstitialiOS), defaultInterstitialiOS);
+            set => Preferences.Set(nameof(InterstitialiOS), value);
+        }
+
+        public static string RewardVideoAndroid
+        {
+            get => Preferences.Get(nameof(RewardVideoAndroid), defaultVideoAndroid);
+            set => Preferences.Set(nameof(RewardVideoAndroid), value);
+        }
+        public static string RewardVideoiOS
+        {
+            get => Preferences.Get(nameof(RewardVideoiOS), defaultVideoiOS);
+            set => Preferences.Set(nameof(RewardVideoiOS), value);
+        }
+
         public static string SampleIosAds
         {
             get => Preferences.Get(nameof(SampleIosAds), defaultSampleIosAds);
@@ -130,7 +159,11 @@ namespace travellingyuan
             get => Preferences.Get(nameof(AppCenteriOSKey), defaultAppCenteriOSKey);
             set => Preferences.Set(nameof(AppCenteriOSKey), value);
         }
-
+        public static bool ShowInterstitial
+        {
+            get => Preferences.Get(nameof(ShowInterstitial), defaultshowintertitial);
+            set => Preferences.Set(nameof(ShowInterstitial), value);
+        }
         public static string SearchEndPoint
         {
             get => Preferences.Get(nameof(SearchEndPoint), defautlSearchEndPoint);

@@ -97,7 +97,8 @@ namespace travellingyuan.ViewModels
                         Label = upload.Comments,
                         Address = upload.Address,
                         Date = upload.UploadDate,
-                        Image = imagepicker.Imagepicker(upload.Value)
+                        Image = imagepicker.Imagepicker(upload.Value),
+						Name=upload.Name,
                     };
                     Pins.Add(marker);
                     Points.Add(new Point((double)upload.Latitude,(double)upload.Longitude));                    
