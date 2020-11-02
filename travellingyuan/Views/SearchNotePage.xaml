@@ -72,6 +72,14 @@
                     </ads:MTAdView.HeightRequest>
                 </ads:MTAdView>
 
+                <Label
+                HorizontalOptions="Center"                
+                Text="Show Video Ad">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
             </StackLayout>
         </ControlTemplate>
     </ContentPage.ControlTemplate>

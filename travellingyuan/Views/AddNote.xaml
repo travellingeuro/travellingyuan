@@ -346,6 +346,13 @@
                         Style="{StaticResource IconButtonStyle}"
                         CornerRadius="4"/>
             </Grid>
+            <Label
+                HorizontalOptions="Center"                
+                Text="Show Video Ad">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
 
 
         </StackLayout>

@@ -20,6 +20,8 @@ namespace travellingyuan.Views
                 CrossMTAdmob.Current.LoadInterstitial(interad);
                 ShowInterstitial();
             }
+            var videoid = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.RewardVideoAndroid : AppSettings.RewardVideoiOS;
+            CrossMTAdmob.Current.LoadRewardedVideo(videoid);
         }
 
         private void ShowInterstitial()
@@ -30,6 +32,15 @@ namespace travellingyuan.Views
                 CrossMTAdmob.Current.ShowInterstitial();
                 AppSettings.ShowInterstitial = false;
             }
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            if (CrossMTAdmob.Current.IsRewardedVideoLoaded())
+            {
+                CrossMTAdmob.Current.ShowRewardedVideo();
+            }
+
         }
     }
 }
