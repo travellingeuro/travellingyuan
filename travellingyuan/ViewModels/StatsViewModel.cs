@@ -1,5 +1,4 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
 using Syncfusion.SfMaps.XForms;
 using System;
@@ -9,7 +8,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using travellingyuan.Controls;
 using travellingyuan.Exceptions;
+using travellingyuan.Helper;
 using travellingyuan.Models;
 using travellingyuan.Services.Dialogs;
 using travellingyuan.Services.SearchNote;
@@ -124,6 +125,7 @@ namespace travellingyuan.ViewModels
         {
             if(NoteValue!=null && Uploads != null)
             {
+                var imagepicker = new ImagePicker();
                 int.TryParse((string)NoteValue, out int value);
                 //selects Uploads with a NoteValue           
                 var selectedvaluenotes = Uploads.Where(v => v.Value == value);
@@ -137,13 +139,48 @@ namespace travellingyuan.ViewModels
                 //transforms to Marker list
                 foreach (var upload in selectedvaluenotes)
                 {
-                    var marker = new MapMarker();
-                    marker.Label = upload.Value.ToString();
-                    marker.Latitude = upload.Latitude.ToString();
-                    marker.Longitude = upload.Longitude.ToString();
+                    var marker = new CustomMarker
+                    {
+                        Latitude = upload.Latitude.ToString(),
+                        Longitude = upload.Longitude.ToString(),
+                        Label = upload.Comments,
+                        Address = upload.Address,
+                        Date = upload.UploadDate,
+                        Image = imagepicker.Imagepicker(upload.Value),
+                        Name = upload.Name
+                    };
+
                     ViewMarkers.Add(marker);
                 }
             }  
+        }
+        private void SetInitialMarkers()
+        {
+            if (Uploads != null)
+            {
+                var imagepicker = new ImagePicker();
+
+                //show all notes markers in the map
+                //empty ViewMarkers
+                if (ViewMarkers.Any())
+                {
+                    ViewMarkers.Clear();
+                }
+                foreach (var upload in Uploads)
+                {
+                    var marker = new CustomMarker
+                    {
+                        Latitude = upload.Latitude.ToString(),
+                        Longitude = upload.Longitude.ToString(),
+                        Label = upload.Comments,
+                        Address = upload.Address,
+                        Date = upload.UploadDate,
+                        Image = imagepicker.Imagepicker(upload.Value),
+                        Name = upload.Name
+                    };
+                    ViewMarkers.Add(marker);
+                }
+            }
         }
 
 
@@ -156,6 +193,7 @@ namespace travellingyuan.ViewModels
         {
             
             Uploads = Task.Run(GetUploads).Result;
+            SetInitialMarkers();
             TotalNotes= Uploads.Select(s => s.SerialNumber).Distinct().Count();
             
         }

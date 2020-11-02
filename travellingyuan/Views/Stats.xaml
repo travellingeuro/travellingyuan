@@ -20,11 +20,66 @@
             <Style x:Key="background" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="Black"/>
             </Style>
+            <!--marker Template-->
             <DataTemplate x:Key="markerTemplate">
                 <StackLayout IsClippedToBounds="false" HorizontalOptions="StartAndExpand" VerticalOptions="Center" HeightRequest="35">
                     <Image Source="pin.png" Scale="1" Aspect="AspectFit " HorizontalOptions="StartAndExpand" VerticalOptions="Center"  HeightRequest="35" WidthRequest="25" />
                 </StackLayout>
             </DataTemplate>
+            
+            <!--Datatemplate for tooltip-->
+            <DataTemplate x:Key="tooltipTemplate">
+                <StackLayout BackgroundColor="{DynamicResource Gray-White}" Spacing="0">
+                    <Grid Margin="8,8,8,8"  ColumnSpacing="0" RowSpacing="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <border:SfBorder
+                            BackgroundColor="{DynamicResource Gray-200}"
+                            Style="{StaticResource ProfileBorderStyle}" 
+                            HorizontalOptions="Start">
+                            <Image HeightRequest="60" 
+                                   WidthRequest="50" 
+                                   BackgroundColor="{DynamicResource Gray-200}" 
+                                   Aspect="AspectFit" 
+                                   Source="{Binding Image}">
+                            </Image>
+                        </border:SfBorder>
+                        <StackLayout Grid.Column="1"   Margin="6,5" HorizontalOptions="Start" Spacing="2" VerticalOptions="FillAndExpand" WidthRequest="200">
+                            <Label Text="{Binding Date, StringFormat='{0:dd MMMM, yyyy}'}"                            
+                               TextColor="{DynamicResource Gray-800}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               FontSize="{DynamicResource Eight}" 
+                               LineHeight="{OnPlatform Android=1.5,Default=-1}"
+                               HorizontalOptions="Start"/>
+                            <Label Text="{Binding Name}"                            
+                               TextColor="{DynamicResource Gray-800}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               LineBreakMode="WordWrap"                                 
+                               FontSize="{DynamicResource Ten}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}" 
+                               HorizontalOptions="Center"/>
+                            <Label Text="{Binding Address}"                            
+                               TextColor="{DynamicResource PrimaryColor}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               LineBreakMode="WordWrap"                                 
+                               FontSize="{DynamicResource Eight}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}" 
+                               HorizontalOptions="Center"/>
+                            <Label Text="{Binding Label}"                            
+                               TextColor="{DynamicResource Gray-700}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               FontSize="{DynamicResource Eight}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}"
+                               HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Grid>
+                    <BoxView Style="{StaticResource SeparatorStyle}"/>
+                </StackLayout>
+            </DataTemplate>
+            
             <converter:BooleanToColorConverter x:Key="ColorConverter" />
             <converter:TextEnteredToBoolConverter x:Key="BoolConverter"/>
             <ResourceDictionary.MergedDictionaries>
@@ -92,7 +147,7 @@
                 
             </Grid.RowDefinitions>
             
-            <ActivityIndicator 
+            <ActivityIndicator  Grid.Row="0"
                     Color="{StaticResource Theme}"
                     IsRunning="{Binding IsBusy}" 
                     IsVisible="{Binding IsBusy}" />
@@ -147,7 +202,16 @@
                     <maps:ImageryLayer x:Name="map" 
                                        MarkerTemplate="{StaticResource Key=markerTemplate}"
                                        Markers="{Binding ViewMarkers}"
-                                       >                        
+                                       ResetOldSelectedView="True">
+                        <maps:ImageryLayer.MarkerSettings>
+                            <maps:MapMarkerSetting>
+                                <maps:MapMarkerSetting.TooltipSettings>
+                                    <maps:TooltipSetting TooltipTemplate="{StaticResource Key=tooltipTemplate}"                                                          
+                                                         Duration="3000"
+                                                         ShowTooltip="True"/>
+                                </maps:MapMarkerSetting.TooltipSettings>
+                            </maps:MapMarkerSetting>
+                        </maps:ImageryLayer.MarkerSettings>
                     </maps:ImageryLayer>
                 </maps:SfMaps.Layers>
             </maps:SfMaps>
