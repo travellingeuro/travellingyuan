@@ -146,7 +146,16 @@
                 </Label.GestureRecognizers>
             </Label>
 
-            <controls:AdMobView/>
+            <!--<controls:AdMobView />-->
+            <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+                <ads:MTAdView.HeightRequest>
+                    <x:OnIdiom>
+                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                        <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                        <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                    </x:OnIdiom>
+                </ads:MTAdView.HeightRequest>
+            </ads:MTAdView>
 
 
 

@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
-             xmlns:prismnav="http://prismlibrary.com"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:converter="clr-namespace:travellingyuan.Converters" 
              xmlns:controls="clr-namespace:travellingyuan.Controls" 
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"      
              x:Class="travellingyuan.Views.SearchNotePage"
@@ -35,8 +34,7 @@
         <ControlTemplate>
             <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
 
-                <controls:AdMobView />
-                
+                                
                 <StackLayout Orientation="Horizontal">
                     
                     <Label
@@ -63,6 +61,16 @@
                 <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
 
                 <ContentPresenter />
+                <!--<controls:AdMobView />-->
+                <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+                    <ads:MTAdView.HeightRequest>
+                        <x:OnIdiom>
+                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                        </x:OnIdiom>
+                    </ads:MTAdView.HeightRequest>
+                </ads:MTAdView>
 
             </StackLayout>
         </ControlTemplate>

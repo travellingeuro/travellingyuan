@@ -4,8 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:prismnav="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
-             xmlns:controls="clr-namespace:travellingyuan.Controls"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="travellingyuan.Views.ViewUpload"
              Title="ViewNotes page"
              NavigationPage.HasNavigationBar="False"
@@ -44,7 +44,16 @@
 
             <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}" Grid.Row="0">
 
-                <controls:AdMobView />
+                <!--<controls:AdMobView />-->
+                <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+                    <ads:MTAdView.HeightRequest>
+                        <x:OnIdiom>
+                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                        </x:OnIdiom>
+                    </ads:MTAdView.HeightRequest>
+                </ads:MTAdView>
 
                 <StackLayout Orientation="Horizontal">
 
