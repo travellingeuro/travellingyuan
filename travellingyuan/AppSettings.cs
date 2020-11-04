@@ -33,8 +33,8 @@ namespace travellingyuan
 
 
         //AppCenter
-        const string defaultAppCenterAndroidKey = "93ae46ad-ed4c-40ca-82df-e12c3fdab482";
-        const string defaultAppCenteriOSKey = "fc96f24b-04b6-490d-a920-7ed0956a5bee";
+        const string defaultAppCenterAndroidKey = "2660757e-d745-4bab-aea2-62f0dbf0189f";
+        const string defaultAppCenteriOSKey = "1176ba1b-999f-4423-920d-0029c4a20333";
 
         //Display only one interstitial per sesion
         const bool defaultshowintertitial = true;
