@@ -3,6 +3,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
+//using AppTrackingTransparency;
+
 
 namespace travellingyuan.Views
 {
@@ -16,11 +18,23 @@ namespace travellingyuan.Views
             InitializeComponent();
             if (AppSettings.ShowInterstitial)
             {
-                var interad = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.InterstitialAndroid : AppSettings.InterstitialiOS;
-                CrossMTAdmob.Current.LoadInterstitial(interad);
+                var platform = Xamarin.Essentials.DeviceInfo.Platform;
+                var interad = platform == DevicePlatform.Android ? AppSettings.InterstitialAndroid : AppSettings.InterstitialiOS;
+                //if (platform == DevicePlatform.iOS)
+                //{
+                //    ATTrackingManager.RequestTrackingAuthorization((status) =>
+                //    {
+                //        if (status == ATTrackingManagerAuthorizationStatus.Authorized) { CrossMTAdmob.Current.LoadInterstitial(interad); }
+
+                //    });
+                //}
+                //else
+                {
+                    CrossMTAdmob.Current.LoadInterstitial(interad);
+                }
                 ShowInterstitial();
             }
-            var videoid = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.RewardVideoAndroid : AppSettings.RewardVideoiOS;
+                var videoid = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.RewardVideoAndroid : AppSettings.RewardVideoiOS;
             CrossMTAdmob.Current.LoadRewardedVideo(videoid);
         }
 

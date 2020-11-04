@@ -23,6 +23,8 @@ namespace travellingyuan.Views
             if (CrossMTAdmob.Current.IsRewardedVideoLoaded())
             {
                 CrossMTAdmob.Current.ShowRewardedVideo();
+                var videoid = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.RewardVideoAndroid : AppSettings.RewardVideoiOS;
+                CrossMTAdmob.Current.LoadRewardedVideo(videoid);
             }
         }
     }

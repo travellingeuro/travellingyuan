@@ -346,13 +346,17 @@
                         Style="{StaticResource IconButtonStyle}"
                         CornerRadius="4"/>
             </Grid>
-            <Label
-                HorizontalOptions="Center"                
-                Text="Show Video Ad">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
+            <buttons:SfButton 
+                Text="Show Video Ad" 
+                ImageSource="videoad.png" 
+                BackgroundColor="{StaticResource Gray-100}"
+                TextColor="{StaticResource Gray-800}"
+                ShowIcon="True"   
+                HeightRequest="50"
+               ImageAlignment="End" 
+                Clicked="TapGestureRecognizer_Tapped"                                
+                Style="{StaticResource SfButtonStyle}">
+            </buttons:SfButton>
 
 
         </StackLayout>

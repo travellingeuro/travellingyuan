@@ -22,6 +22,8 @@
     <x:String x:Key="Photo">&#xe713;</x:String>
     <x:String x:Key="Stats">&#xe733;</x:String>
     <x:String x:Key="Addmore">&#xe715;</x:String>
+    <x:String x:Key="VideoAd">&#xe718;</x:String>
+
 
 
 

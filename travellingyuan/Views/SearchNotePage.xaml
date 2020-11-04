@@ -71,14 +71,17 @@
                         </x:OnIdiom>
                     </ads:MTAdView.HeightRequest>
                 </ads:MTAdView>
-
-                <Label
-                HorizontalOptions="Center"                
-                Text="Show Video Ad">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                <buttons:SfButton 
+                    Text="Show Video Ad" 
+                    ImageSource="videoad.png" 
+                    TextColor="{StaticResource Gray-800}"
+                    BackgroundColor="{StaticResource Gray-100}"
+                    ShowIcon="True"   
+                    HeightRequest="50"
+                    ImageAlignment="End" 
+                    Clicked="TapGestureRecognizer_Tapped"    
+                    Style="{StaticResource SfButtonStyle}">
+                </buttons:SfButton>
 
             </StackLayout>
         </ControlTemplate>

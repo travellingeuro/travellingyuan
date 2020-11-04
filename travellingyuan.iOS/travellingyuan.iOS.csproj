@@ -325,5 +325,14 @@
   <ItemGroup>
     <BundleResource Include="Resources\pin%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videoad%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videoad%403x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
