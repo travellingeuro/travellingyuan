@@ -20,7 +20,7 @@
     <StackLayout>
 
         <!--<controls:AdMobView />-->
-        <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+        <ads:MTAdView IsVisible="true" Margin="0,10,0,0" VerticalOptions="End" ComplyFamilyPolicies="True" PersonalizedAds="True">
             <ads:MTAdView.HeightRequest>
                 <x:OnIdiom>
                     <x:OnIdiom.Phone>50</x:OnIdiom.Phone>

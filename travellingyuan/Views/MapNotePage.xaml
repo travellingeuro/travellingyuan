@@ -106,7 +106,7 @@
         <ControlTemplate>
             <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
                 <!--<controls:AdMobView />-->
-                <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+                <ads:MTAdView IsVisible="true" VerticalOptions="End" ComplyFamilyPolicies="True" PersonalizedAds="True">
                     <ads:MTAdView.HeightRequest>
                         <x:OnIdiom>
                             <x:OnIdiom.Phone>50</x:OnIdiom.Phone>

@@ -28,7 +28,7 @@
 		<string>Montserrat-SemiBold.ttf</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>12.1</string>
+	<string>13.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>travellingyuan</string>
 	<key>CFBundleIdentifier</key>
