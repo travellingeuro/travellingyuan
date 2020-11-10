@@ -47,7 +47,7 @@ namespace travellingyuan
             CrossMTAdmob.Current.ComplyWithFamilyPolicies = true;
             CrossMTAdmob.Current.UseRestrictedDataProcessing = true;
             AppSettings.ShowInterstitial = true;
-            CrossMTAdmob.Current.AdsId = DeviceInfo.Platform == DevicePlatform.iOS ? AppSettings.SampleIosAds : AppSettings.SampleAndroidAds;
+            CrossMTAdmob.Current.AdsId = DeviceInfo.Platform == DevicePlatform.iOS ? AppSettings.IosAds : AppSettings.AndroidAds;
 
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");

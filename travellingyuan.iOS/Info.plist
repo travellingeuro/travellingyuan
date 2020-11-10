@@ -5,6 +5,7 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
+		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -28,7 +29,7 @@
 		<string>Montserrat-SemiBold.ttf</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>13.0</string>
+	<string>12.4</string>
 	<key>CFBundleDisplayName</key>
 	<string>travellingyuan</string>
 	<key>CFBundleIdentifier</key>
@@ -57,8 +58,6 @@
 	<string>ca-app-pub-9800707284712065~8862233239</string>
 	<key>GADIsAdManagerApp</key>
 	<true/>
-	<key>CFBundleIconName</key>
-	<string>AppIcon</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Needed to capture the serial number. This will not be shared</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -68,10 +67,12 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Needed to pick a photo of a note serial number. This will not be shared.</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>CFBundleVersion</key>
 	<string>2.0</string>
 	<key>XSAppIconAssets</key>
-	<string>Media.xcassets/AppIcons.appiconset</string>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
 </dict>
 </plist>
