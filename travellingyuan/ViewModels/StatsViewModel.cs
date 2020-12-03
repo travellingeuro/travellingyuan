@@ -70,6 +70,7 @@ namespace travellingyuan.ViewModels
         {
             this.dialogService = dialogService;
             this.searchNote = searchNote;
+            IsBusy = true;
         }
 
 
@@ -116,7 +117,7 @@ namespace travellingyuan.ViewModels
             }
             finally
             {
-                IsBusy = false;
+                //IsBusy = false;
             }
 
         }
@@ -181,6 +182,8 @@ namespace travellingyuan.ViewModels
                     ViewMarkers.Add(marker);
                 }
             }
+            IsBusy = false;
+            
         }
 
 
@@ -195,6 +198,7 @@ namespace travellingyuan.ViewModels
             Uploads = Task.Run(GetUploads).Result;
             SetInitialMarkers();
             TotalNotes= Uploads.Select(s => s.SerialNumber).Distinct().Count();
+            IsBusy = false;
             
         }
 

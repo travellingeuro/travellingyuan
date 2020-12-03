@@ -30,7 +30,8 @@ namespace travellingyuan.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(AppSettings.SyncfusionKey);
-            global::Xamarin.Forms.Forms.Init();
+global::Xamarin.Forms.Forms.Init();
+
             global::Xamarin.Forms.FormsMaterial.Init();
 
             AppCenter.Start(AppSettings.AppCenteriOSKey, typeof(Analytics), typeof(Crashes));
