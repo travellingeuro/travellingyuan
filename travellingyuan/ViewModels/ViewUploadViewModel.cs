@@ -18,7 +18,6 @@ namespace travellingyuan.ViewModels
         public INavigationService NavigationService { get; private set; }
         public ISearchPlace searchPlace { get; private set; }
 
-
         //Commands
         public DelegateCommand MapTapCommand { get; set; }
 
@@ -29,6 +28,7 @@ namespace travellingyuan.ViewModels
             get { return uploads; }
             set { SetProperty(ref uploads, value); }
         }
+
         private List<ExtendedUploads> extendeduploads;
         public List<ExtendedUploads> ExtendedUploads
         {
@@ -52,7 +52,6 @@ namespace travellingyuan.ViewModels
 
         private async void NaviagteToMap()
         {
-
             var parameters = new NavigationParameters();
             parameters.Add("Uploads", Uploads);
             await NavigationService.NavigateAsync("MapNotePage", parameters);
@@ -102,20 +101,15 @@ namespace travellingyuan.ViewModels
             }
             return exup;
         }
-
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
 
         }
-
-
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-
             Uploads = (List<Uploads>)parameters["Uploads"] ?? null;
             ExtendedUploads = Task.Run(GetExtendedUploads).Result;
             Upload = Uploads.FirstOrDefault();
-
         }
 
 

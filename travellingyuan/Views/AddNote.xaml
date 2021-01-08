@@ -105,6 +105,51 @@
                             Style="{StaticResource EntryTextBoxStyle}"
                             IsVisible="{Binding ShowEmailEntry}"/>
             </border:SfBorder>
+            <!--Serial number entry-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       FontFamily="{StaticResource Montserrat-Medium}"
+                       Margin="0,24,0,4"
+                       HeightRequest="18" 
+                       FontSize="{DynamicResource Twelve}"
+                       Text="Serial Number"
+                       TextColor="{DynamicResource Gray-800}" />
+
+                <Label Grid.Column="1"   
+                       Margin="0,24,0,4"
+                       Style="{StaticResource IconLabelStyle}"
+                       Text="{StaticResource Help}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowSpecimenCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Grid.Column="2"
+                       Margin="0,24,0,4"
+                       Style="{StaticResource IconLabelStyle}"
+                       Text="{StaticResource Photo}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ScanCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+            <border:SfBorder BorderColor="{Binding Source={x:Reference SerialNumber}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+
+                <controls:BorderlessEntry
+                            x:Name="SerialNumber"
+                            Placeholder="Serial Number"
+                            Text="{Binding SerialNumber}"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+            </border:SfBorder>
+            
             <!-- Location -->
             <Label
                 FontFamily="{StaticResource Montserrat-Medium}"
@@ -184,55 +229,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <!--fin de listview de resultados-->          
-
-
-
-            <!--Serial number entry-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                
-                <Label Grid.Column="0"
-                       FontFamily="{StaticResource Montserrat-Medium}"
-                       Margin="0,24,0,4"
-                       HeightRequest="18" 
-                       FontSize="{DynamicResource Twelve}"
-                       Text="Serial Number"
-                       TextColor="{DynamicResource Gray-800}" />
-                
-                <Label Grid.Column="1"   
-                       Margin="0,24,0,4"
-                       Style="{StaticResource IconLabelStyle}"
-                       Text="{StaticResource Help}">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ShowSpecimenCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                
-                <Label Grid.Column="2"
-                       Margin="0,24,0,4"
-                       Style="{StaticResource IconLabelStyle}"
-                       Text="{StaticResource Photo}">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ScanCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                
-            </Grid>
-            <border:SfBorder BorderColor="{Binding Source={x:Reference SerialNumber}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
-                                 Style="{StaticResource BusinessFormBorderStyle}">
-               
-                <controls:BorderlessEntry
-                            x:Name="SerialNumber"
-                            Placeholder="Serial Number"
-                            Text="{Binding SerialNumber}"
-                            Style="{StaticResource EntryTextBoxStyle}" />
-            </border:SfBorder>
-
+            <!--fin de listview de resultados-->   
+            
             <!--Value-->
 
             <Label

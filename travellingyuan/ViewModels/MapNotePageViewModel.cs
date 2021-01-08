@@ -48,13 +48,13 @@ namespace travellingyuan.ViewModels
 			get { return pins; }
 			set { SetProperty(ref pins, value); }
 		}
+
 		private ObservableCollection<Point> points = new ObservableCollection<Point>();
 		public ObservableCollection<Point>  Points
 		{
 			get { return points; }
 			set { SetProperty(ref points, value); }
 		}
-
 
 		public MapNotePageViewModel(INavigationService navigationService)
 		{
@@ -99,6 +99,7 @@ namespace travellingyuan.ViewModels
                         Date = upload.UploadDate,
                         Image = imagepicker.Imagepicker(upload.Value),
 						Name=upload.Name,
+						Serial=upload.SerialNumber
                     };
                     Pins.Add(marker);
                     Points.Add(new Point((double)upload.Latitude,(double)upload.Longitude));                    
@@ -107,7 +108,6 @@ namespace travellingyuan.ViewModels
 		}
 		public void OnNavigatedFrom(INavigationParameters parameters)
 		{
-
 			parameters.Add("Uploads", Uploads);
 		}
 

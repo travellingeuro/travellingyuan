@@ -58,6 +58,14 @@
                                LineHeight="{OnPlatform Android=1.5,Default=-1}"
                                HorizontalOptions="Start"/>
 
+                            <Label Text="{Binding Serial}"                            
+                               TextColor="{DynamicResource Gray-800}" 
+                               FontFamily="{StaticResource Montserrat-Medium}" 
+                               LineBreakMode="WordWrap"                                 
+                               FontSize="{DynamicResource Ten}"
+                               LineHeight="{OnPlatform Android=1.25,Default=-1}" 
+                               HorizontalOptions="Center"/>
+
                             <Label Text="{Binding Name}"                            
                                TextColor="{DynamicResource Gray-800}" 
                                FontFamily="{StaticResource Montserrat-Medium}" 
@@ -102,21 +110,21 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <ContentPage.ControlTemplate>
-        <ControlTemplate>
-            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
-                <!--<controls:AdMobView />-->
-                <ads:MTAdView IsVisible="true"  ComplyFamilyPolicies="True" PersonalizedAds="True">
-                    <ads:MTAdView.HeightRequest>
-                        <x:OnIdiom>
-                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
-                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
-                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
-                        </x:OnIdiom>
-                    </ads:MTAdView.HeightRequest>
-                </ads:MTAdView>
-                <!-- Title -->
-                <Label 
+    <ContentPage.Content>
+        <StackLayout>
+        <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+            <!--<controls:AdMobView />-->
+            <ads:MTAdView IsVisible="true"  ComplyFamilyPolicies="True" PersonalizedAds="True">
+                <ads:MTAdView.HeightRequest>
+                    <x:OnIdiom>
+                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                        <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                        <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                    </x:OnIdiom>
+                </ads:MTAdView.HeightRequest>
+            </ads:MTAdView>
+            <!-- Title -->
+            <Label 
                     Text="Map page"
                     TextColor="{DynamicResource Gray-900}"
                     FontFamily="{StaticResource Montserrat-Medium}"
@@ -124,8 +132,8 @@
                     Margin="0,20,0,0"
                     HorizontalOptions="CenterAndExpand" />
 
-                <StackLayout Spacing="0"   HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  BackgroundColor="{DynamicResource Gray-White}">
-                    <Label 
+            <StackLayout Spacing="0"   HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  BackgroundColor="{DynamicResource Gray-White}">
+                <Label 
                         BindingContext="{TemplateBinding BindingContext}"
                         Text="{Binding SerialNumber}"
                         TextColor="{DynamicResource Gray-600}"
@@ -134,26 +142,16 @@
                         Margin="0,15"                       
                         HorizontalOptions="CenterAndExpand" />
 
-                    <Label                         
+                <Label                         
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Center}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="searcha_Clicked"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
-
-                </StackLayout>
-
-                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
-                <ContentPresenter />
-
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="searcha_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
-        </ControlTemplate>
-    </ContentPage.ControlTemplate>
-
-
-    <ContentPage.Content>
+            <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>  
+        </StackLayout>        
         <Grid
             HorizontalOptions="Fill"
             VerticalOptions="Fill">
@@ -235,6 +233,7 @@
                     IsVisible="{Binding IsBusy}" />
 
         </Grid>
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>

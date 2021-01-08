@@ -32,12 +32,14 @@ namespace travellingyuan.ViewModels
             get { return uploads; }
             set { SetProperty(ref uploads, value); }
         }
+
         private bool isbusy;
         public bool IsBusy
         {
             get { return isbusy; }
             set { SetProperty(ref isbusy, value); }
         }
+
         private object notevalue;
         public object NoteValue
         {
@@ -64,7 +66,6 @@ namespace travellingyuan.ViewModels
             set { SetProperty(ref viewmarkers, value); }
         }
 
-
         //ctr
         public StatsViewModel(IDialogService dialogService, ISearchNote searchNote)
         {
@@ -72,7 +73,6 @@ namespace travellingyuan.ViewModels
             this.searchNote = searchNote;
             IsBusy = true;
         }
-
 
         private async Task<List<Uploads>> GetUploads()
         {
@@ -102,18 +102,14 @@ namespace travellingyuan.ViewModels
             }
             catch (ConnectivityException cex)
             {
-
                 Debug.WriteLine($"[Booking Where Step] Connectivity Error: {cex}");
                 await dialogService.ShowAlertAsync("There is no Internet conection, try again later.", "Error", "Ok");
                 return new List<Uploads>();
-
             }
             catch (Exception ex)
             {
-
                 await dialogService.ShowAlertAsync(ex.Message, Resources.ErrorTitle, Resources.DialogOk);
                 return new List<Uploads>();
-
             }
             finally
             {
@@ -148,7 +144,8 @@ namespace travellingyuan.ViewModels
                         Address = upload.Address,
                         Date = upload.UploadDate,
                         Image = imagepicker.Imagepicker(upload.Value),
-                        Name = upload.Name
+                        Name = upload.Name,
+                        Serial=upload.SerialNumber
                     };
 
                     ViewMarkers.Add(marker);
@@ -177,7 +174,8 @@ namespace travellingyuan.ViewModels
                         Address = upload.Address,
                         Date = upload.UploadDate,
                         Image = imagepicker.Imagepicker(upload.Value),
-                        Name = upload.Name
+                        Name = upload.Name,
+                        Serial=upload.SerialNumber
                     };
                     ViewMarkers.Add(marker);
                 }
@@ -201,7 +199,5 @@ namespace travellingyuan.ViewModels
             IsBusy = false;
             
         }
-
-
     }
 }

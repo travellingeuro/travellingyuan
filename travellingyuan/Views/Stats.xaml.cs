@@ -17,13 +17,19 @@ namespace travellingyuan.Views
         public Stats()
         {
             InitializeComponent();
-            if (AppSettings.ShowInterstitial) 
             {
+                if (Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android)
+                {
+                    var settings = map.MarkerSettings.TooltipSettings;
+                    settings.TooltipTemplate = this.Resources["tooltipTemplate"] as DataTemplate;
+                    settings.ShowTooltip = true;
+                    settings.Duration = 3000;
+                }
                 var interad = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.InterstitialAndroid : AppSettings.InterstitialiOS;
                 CrossMTAdmob.Current.LoadInterstitial(interad);
                 ShowInterstitial();
             }
-            
+
         }
 
         private void ShowInterstitial()

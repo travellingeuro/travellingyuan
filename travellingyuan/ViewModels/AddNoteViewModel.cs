@@ -236,7 +236,7 @@ namespace travellingyuan.ViewModels
             {
                 IsBusy = true;
 
-                if (!String.IsNullOrEmpty(SerialNumber))
+                if (!string.IsNullOrEmpty(SerialNumber))
                 {
                     var listofnotes = await searchNoteService.GetSearchAsync(SerialNumber);
                     var parameters = new NavigationParameters();
@@ -383,6 +383,8 @@ namespace travellingyuan.ViewModels
             {
                 //check for validity of value
                 Checkvalue checkvalue = new Checkvalue();
+                //strip serial number from spaces
+                SerialNumber = string.Concat(SerialNumber.Where(c => !char.IsWhiteSpace(c)));
                 bool result = checkvalue.Checknumber(SerialNumber);
                 //check for validity of email
                 Emailvalidator emailvalidator = new Emailvalidator();
@@ -810,8 +812,12 @@ namespace travellingyuan.ViewModels
 
             //check parameters for "SerialNumber"
             SerialNumber = (string)parameters["SerialNumber"] ?? null;
+            if (!string.IsNullOrEmpty(SerialNumber))
+            {
+                SerialNumber = string.Concat(SerialNumber.Where(c => !char.IsWhiteSpace(c)));
+            }
 
-           
+
         }
     }
 
