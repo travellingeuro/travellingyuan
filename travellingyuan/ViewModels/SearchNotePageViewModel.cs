@@ -105,8 +105,9 @@ namespace travellingyuan.ViewModels
 
         async Task SearchNoteMethod()
         {
-
             Checkvalue checkvalue = new Checkvalue();
+            //strip serial number from spaces
+            SerialNumber = string.Concat(SerialNumber.Where(c => !char.IsWhiteSpace(c)));
             var result = checkvalue.Checknumber(SerialNumber);
             if (!string.IsNullOrEmpty(SerialNumber) && result == true)
             {
@@ -116,7 +117,6 @@ namespace travellingyuan.ViewModels
             {
                 await DialogService.ShowAlertAsync("Review your entry", checkvalue.Message, "OK");
             }
-
         }
 
         async Task SearchNoteAsync()
