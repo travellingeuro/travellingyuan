@@ -14,9 +14,9 @@ namespace travellingyuan.Helper
 
         public bool Checknumber(string serial)
         {
-            if (serial is null)
+            if (string.IsNullOrWhiteSpace(serial))
             {
-                Message = "Serial number cannot be empty";
+                Message = Resources.EmptyEntry;
                 return false;
             }
 

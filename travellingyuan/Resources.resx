@@ -120,6 +120,9 @@
   <data name="DialogOk" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="EmptyEntry" xml:space="preserve">
+    <value>Serial number cannot be empty</value>
+  </data>
   <data name="ErrorTitle" xml:space="preserve">
     <value>OOOPS!</value>
   </data>

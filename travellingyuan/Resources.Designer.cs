@@ -70,6 +70,15 @@ namespace travellingyuan {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Serial number cannot be empty.
+        /// </summary>
+        internal static string EmptyEntry {
+            get {
+                return ResourceManager.GetString("EmptyEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OOOPS!.
         /// </summary>
         internal static string ErrorTitle {
