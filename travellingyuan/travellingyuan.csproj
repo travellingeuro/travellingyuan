@@ -29,22 +29,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
-    <PackageReference Include="MarcTron.Admob" Version="1.6.0" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.481" />
+    <PackageReference Include="MarcTron.Admob" Version="1.6.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.1.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.1.0" />
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.33" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.4.0.33" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.33" />
-    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="18.4.0.33" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.4.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="18.4.0.48" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Prism.Unity.Forms" Version="8.0.0.1909" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.1874" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2012" />
   </ItemGroup>
 
   <ItemGroup>
