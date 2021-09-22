@@ -24,15 +24,15 @@ namespace travellingyuan
         const string defaultCognitiveServiceKey = "27a4453a28ab4df8af50d22fed37bcc0";
 
         //Places 
-        const string defaultGooglePlacesApiKey = "AIzaSyAA5f_usWVL2jbldPd4KDKFFZIrMuKYD6U";
+        const string defaultGooglePlacesApiKey = "*****************";
 
         //Syncfucsion
-        const string defaultSyncfusionKey = "MzgwMTk2QDMxMzgyZTM0MmUzMGxVTkVRMjRiZkEzVGFqcGVRRFkxS0ZpTnJVMUhpdXIrbXNNdFBJcDZ3OXc9";
+        const string defaultSyncfusionKey = "*************************";
 
 
         //AppCenter
-        const string defaultAppCenterAndroidKey = "2660757e-d745-4bab-aea2-62f0dbf0189f";
-        const string defaultAppCenteriOSKey = "1176ba1b-999f-4423-920d-0029c4a20333";
+        const string defaultAppCenterAndroidKey = "*********************";
+        const string defaultAppCenteriOSKey = "******************************";
 
         //Display only one interstitial per sesion
         const bool defaultshowintertitial = true;
