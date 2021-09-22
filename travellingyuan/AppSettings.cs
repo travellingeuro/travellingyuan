@@ -18,7 +18,7 @@ namespace travellingyuan
 
 
         //AppsFlyer DeveloperKey
-        const string defaultAppsFlyerDevKey = "mev2fD4zJwnzjJhAGYd3SH";
+        const string defaultAppsFlyerDevKey = "**************";
 
         //Cognitive services
         const string defaultCognitiveServiceKey = "27a4453a28ab4df8af50d22fed37bcc0";
